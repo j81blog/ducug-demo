@@ -1,0 +1,70 @@
+{{ define "main" }}
+<div class="homepage">
+
+  {{/* Hero */}}
+  <section class="hero mb-12 text-center">
+    <h1 class="text-4xl font-bold mb-4">{{ .Site.Title }}</h1>
+    <p class="text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto">
+      De community door en voor de Citrix professionals in Nederland
+    </p>
+  </section>
+
+  {{/* Next event */}}
+  {{ $upcoming := where (where .Site.RegularPages "Section" "evenementen") ".Params.archived" false }}
+  {{ $upcoming = $upcoming | first 1 }}
+  {{ range $upcoming }}
+  <section class="next-event mb-12 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800">
+    <p class="text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">Volgend evenement</p>
+    <h2 class="text-2xl font-bold mb-2">
+      <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
+    </h2>
+    <p class="text-neutral-600 dark:text-neutral-300 mb-1">
+      📅 {{ .Date | time.Format "2 January 2006" }}
+    </p>
+    <p class="text-neutral-600 dark:text-neutral-300 mb-4">
+      📍 {{ .Params.location }}
+    </p>
+    {{ if .Params.eventbriteUrl }}
+    <a href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener"
+       class="inline-block px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
+      Aanmelden via Eventbrite →
+    </a>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{/* Page content */}}
+  {{ with .Content }}
+  <section class="prose dark:prose-invert max-w-none mb-12">
+    {{ . }}
+  </section>
+  {{ end }}
+
+  {{/* Sponsor wall */}}
+  {{ partial "sponsor-wall.html" . }}
+
+  {{/* Recent events */}}
+  {{ $past := where (where .Site.RegularPages "Section" "evenementen") ".Params.archived" true }}
+  {{ $past = $past | first 5 }}
+  {{ if $past }}
+  <section class="recent-events mb-12">
+    <h2 class="text-2xl font-bold mb-6">Recente evenementen</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {{ range $past }}
+      <a href="{{ .RelPermalink }}" class="block p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-primary-400 transition-colors">
+        <p class="font-semibold text-lg mb-1">{{ .Title }}</p>
+        <p class="text-sm text-neutral-500">{{ .Date | time.Format "2 January 2006" }}</p>
+        <p class="text-sm text-neutral-500">{{ .Params.location }}</p>
+      </a>
+      {{ end }}
+    </div>
+    <p class="mt-4">
+      <a href="{{ "evenementen/" | relURL }}" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">
+        Alle evenementen bekijken →
+      </a>
+    </p>
+  </section>
+  {{ end }}
+
+</div>
+{{ end }}

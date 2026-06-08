@@ -1,0 +1,35 @@
+{
+  "sum": "c817bc43de36847b",
+  "dependencySources": {
+    "dependencies": {
+      "@headlessui/react": "github.com/nunocoracao/blowfish/v2",
+      "@heroicons/react": "github.com/nunocoracao/blowfish/v2",
+      "@iamtraction/google-translate": "github.com/nunocoracao/blowfish/v2",
+      "@tailwindcss/forms": "github.com/nunocoracao/blowfish/v2",
+      "commander": "github.com/nunocoracao/blowfish/v2"
+    },
+    "devDependencies": {
+      "@awmottaz/prettier-plugin-void-html": "github.com/nunocoracao/blowfish/v2",
+      "@tailwindcss/cli": "github.com/nunocoracao/blowfish/v2",
+      "@tailwindcss/typography": "github.com/nunocoracao/blowfish/v2",
+      "chart.js": "github.com/nunocoracao/blowfish/v2",
+      "fuse.js": "github.com/nunocoracao/blowfish/v2",
+      "jquery": "github.com/nunocoracao/blowfish/v2",
+      "katex": "github.com/nunocoracao/blowfish/v2",
+      "lite-youtube-embed": "github.com/nunocoracao/blowfish/v2",
+      "medium-zoom": "github.com/nunocoracao/blowfish/v2",
+      "mermaid": "github.com/nunocoracao/blowfish/v2",
+      "packery": "github.com/nunocoracao/blowfish/v2",
+      "prettier": "github.com/nunocoracao/blowfish/v2",
+      "prettier-plugin-go-template": "github.com/nunocoracao/blowfish/v2",
+      "prettier-plugin-tailwindcss": "github.com/nunocoracao/blowfish/v2",
+      "puppeteer": "github.com/nunocoracao/blowfish/v2",
+      "rimraf": "github.com/nunocoracao/blowfish/v2",
+      "tailwind-scrollbar": "github.com/nunocoracao/blowfish/v2",
+      "tailwindcss": "github.com/nunocoracao/blowfish/v2",
+      "tw-elements": "github.com/nunocoracao/blowfish/v2",
+      "typeit": "github.com/nunocoracao/blowfish/v2",
+      "vendor-copy": "github.com/nunocoracao/blowfish/v2"
+    }
+  }
+}

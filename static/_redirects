@@ -1,0 +1,42 @@
+# === Old WordPress event slugs → new Hugo slugs ===
+/evenementen/citrix-user-group-conferentie-1/    /ducug-website/evenementen/ducug-1/    301
+/evenementen/citrix-user-group-conferentie-2/    /ducug-website/evenementen/ducug-2/    301
+/evenementen/citrix-user-group-conferentie-3/    /ducug-website/evenementen/ducug-3/    301
+/evenementen/citrix-user-group-conferentie-4-2/  /ducug-website/evenementen/ducug-4/    301
+/evenementen/citrix-user-group-conferentie-5/    /ducug-website/evenementen/ducug-5/    301
+/evenementen/citrix-user-group-conferentie-6/    /ducug-website/evenementen/ducug-6/    301
+/evenementen/citrix-user-group-conferentie-7-2/  /ducug-website/evenementen/ducug-7/    301
+/evenementen/citrix-user-group-conferentie-8/    /ducug-website/evenementen/ducug-8/    301
+/evenementen/citrix-user-group-conferentie-9/    /ducug-website/evenementen/ducug-9/    301
+/evenementen/citrix-user-group-conferentie-10/   /ducug-website/evenementen/ducug-10/   301
+/evenementen/citrix-user-group-conferentie-11/   /ducug-website/evenementen/ducug-11/   301
+/evenementen/citrix-user-group-conferentie-12-2/ /ducug-website/evenementen/ducug-12/   301
+/evenementen/citrix-user-group-conferentie-13/   /ducug-website/evenementen/ducug-13/   301
+/evenementen/citrix-user-group-conferentie-14/   /ducug-website/evenementen/ducug-14/   301
+/evenementen/citrix-user-group-conferentie-15/   /ducug-website/evenementen/ducug-15/   301
+/evenementen/citrix-user-group-conferentie-16/   /ducug-website/evenementen/ducug-16/   301
+/evenementen/citrix-user-group-conferentie-17/   /ducug-website/evenementen/ducug-17/   301
+/evenementen/citrix-user-group-conferentie-18/   /ducug-website/evenementen/ducug-18/   301
+/evenementen/citrix-user-group-conferentie-19/   /ducug-website/evenementen/ducug-19/   301
+/evenementen/citrix-user-group-conferentie-20/   /ducug-website/evenementen/ducug-20/   301
+/evenementen/citrix-user-group-conferentie-21/   /ducug-website/evenementen/ducug-21/   301
+/evenementen/citrix-user-group-conferentie-22/   /ducug-website/evenementen/ducug-22/   301
+/evenementen/citrix-user-group-conferentie-23/   /ducug-website/evenementen/ducug-23/   301
+/evenementen/citrix-user-group-conferentie-24/   /ducug-website/evenementen/ducug-24/   301
+/evenementen/citrix-user-group-conferentie-25/   /ducug-website/evenementen/ducug-25/   301
+/evenementen/citrix-user-group-conferentie-26/   /ducug-website/evenementen/ducug-26/   301
+/evenementen/citrix-user-group-conferentie-27/   /ducug-website/evenementen/ducug-27/   301
+/evenementen/citrix-user-group-conferentie-28/   /ducug-website/evenementen/ducug-28/   301
+
+# === Old WordPress page slugs ===
+/sponsor-worden/     /ducug-website/sponsor/     301
+/over-ducug/         /ducug-website/over/        301
+/over-de-ducug/      /ducug-website/over/        301
+/evenementenagenda/  /ducug-website/evenementen/ 301
+/call-for-papers/    /ducug-website/cfp/         301
+/online-event/       /ducug-website/evenementen/ducug-18/ 301
+
+# === RSS feeds ===
+/feed/     /ducug-website/index.xml  301
+/feed/rss/ /ducug-website/index.xml  301
+/rss/      /ducug-website/index.xml  301

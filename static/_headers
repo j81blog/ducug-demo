@@ -1,0 +1,6 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' podio.com *.podio.com sessionize.com *.sessionize.com www.eventbrite.nl *.eventbrite.nl; frame-src podio.com *.podio.com sessionize.com *.sessionize.com www.eventbrite.nl *.eventbrite.nl; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self' https:; connect-src 'self'

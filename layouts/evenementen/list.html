@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="evenementen-list">
+
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold mb-3">{{ .Title }}</h1>
+    {{ with .Content }}<div class="prose dark:prose-invert">{{ . }}</div>{{ end }}
+  </header>
+
+  {{/* Upcoming events */}}
+  {{ $upcoming := where .Pages ".Params.archived" false }}
+  {{ if $upcoming }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-5">Aankomend</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {{ range $upcoming }}
+      <a href="{{ .RelPermalink }}" class="block p-6 rounded-xl border-2 border-primary-400 bg-primary-50 dark:bg-primary-900/20 hover:border-primary-600 transition-colors">
+        <p class="font-bold text-lg mb-1">{{ .Title }}</p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300">📅 {{ .Date | time.Format "2 January 2006" }}</p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300">📍 {{ .Params.location }}</p>
+        {{ if .Params.eventbriteUrl }}
+        <span class="inline-block mt-2 text-sm font-medium text-primary-600 dark:text-primary-400">Aanmelden →</span>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Past events — grouped by year using Hugo's built-in GroupByDate */}}
+  {{ $past := where .Pages ".Params.archived" true }}
+  {{ $grouped := $past.GroupByDate "2006" }}
+
+  {{ range $grouped }}
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-4 border-b border-neutral-200 dark:border-neutral-700 pb-2">{{ .Key }}</h2>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="block p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-primary-400 transition-colors">
+        <p class="font-semibold mb-1">{{ .Title }}</p>
+        <p class="text-sm text-neutral-500">{{ .Date | time.Format "2 January 2006" }}</p>
+        <p class="text-sm text-neutral-500 truncate">{{ .Params.location }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+</div>
+{{ end }}

@@ -1,0 +1,17 @@
+baseURL = "https://ducug.github.io/ducug-website/"
+defaultContentLanguage = "nl"
+title = "DuCUG — Dutch Citrix User Group"
+
+[module]
+  [[module.imports]]
+    path = "github.com/nunocoracao/blowfish/v2"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home    = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page    = ["HTML"]

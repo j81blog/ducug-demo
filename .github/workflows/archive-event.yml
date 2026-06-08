@@ -1,0 +1,80 @@
+name: Archive Sessionize Event
+
+on:
+  # Manual trigger from the GitHub Actions UI — primary method
+  workflow_dispatch:
+    inputs:
+      sessionize_endpoint_id:
+        description: "Sessionize endpoint ID (from the API/Embed page)"
+        required: true
+        type: string
+      event_number:
+        description: "DuCUG event number (e.g. 29)"
+        required: true
+        type: number
+      event_date:
+        description: "Event date in yyyy-MM-dd format (e.g. 2026-09-18)"
+        required: true
+        type: string
+      event_location:
+        description: "Venue/location string"
+        required: false
+        default: "De Oude Duikenburg, Echteld"
+        type: string
+      eventbrite_url:
+        description: "Eventbrite event URL (optional)"
+        required: false
+        type: string
+
+jobs:
+  archive-event:
+    name: Archive DuCUG event from Sessionize
+    runs-on: windows-latest
+
+    permissions:
+      contents: write   # Required to commit the generated file back to the repo
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Export-SessionizeEvent.ps1
+        id: export
+        shell: pwsh
+        run: |
+          $Params = @{
+              SessionizeEndpointId = "${{ github.event.inputs.sessionize_endpoint_id }}"
+              EventNumber          = ${{ github.event.inputs.event_number }}
+              EventDate            = "${{ github.event.inputs.event_date }}"
+              EventLocation        = "${{ github.event.inputs.event_location }}"
+              OutputPath           = "${{ github.workspace }}\content\evenementen"
+              Force                = $true
+              GitHubActionsOutput  = $true
+              Verbose              = $true
+          }
+          if ("${{ github.event.inputs.eventbrite_url }}" -ne "") {
+              $Params["EventbriteUrl"] = "${{ github.event.inputs.eventbrite_url }}"
+          }
+          .\scripts\Export-SessionizeEvent.ps1 @Params
+
+      - name: Commit and push generated archive page
+        shell: pwsh
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          $FilePath = "content/evenementen/ducug-${{ github.event.inputs.event_number }}.md"
+          git add $FilePath
+
+          $Status = git status --porcelain
+          if ($Status) {
+              git commit -m "archive: DuCUG #${{ github.event.inputs.event_number }} — generated from Sessionize"
+              git push origin main
+              Write-Output "Committed and pushed: $($FilePath)"
+          }
+          else {
+              Write-Output "No changes to commit — file was already up to date."
+          }

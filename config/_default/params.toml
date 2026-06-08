@@ -1,0 +1,36 @@
+colorScheme           = "ocean"
+defaultAppearance     = "light"
+autoSwitchAppearance  = true
+disableImageZoom      = true
+
+description = "De onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland."
+
+[homepage]
+  layout           = "custom"
+  showRecent       = false
+  showRecentItems  = 0
+
+[article]
+  showDate            = true
+  showReadingTime     = false
+  showTableOfContents = false
+  showBreadcrumbs     = false
+  showAuthor          = false
+  showPagination      = true
+
+[list]
+  showCards    = true
+  groupByYear  = true
+  cardView     = true
+
+[footer]
+  showCopyright        = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  copyright            = "© Stichting DuCUG · KvK 54456754"
+
+[header]
+  layout = "basic"
+
+[navigation]
+  showLogo = false

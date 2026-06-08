@@ -1,0 +1,47 @@
+[[sponsor]]
+  name = "Citrix / Cloud Software Group"
+  logo = ""
+  url  = "https://www.citrix.com"
+  tier = "platinum"
+
+[[sponsor]]
+  name = "Ivanti"
+  logo = ""
+  url  = "https://www.ivanti.com"
+  tier = "gold"
+
+[[sponsor]]
+  name = "eG Innovations"
+  logo = ""
+  url  = "https://www.eginnovations.com"
+  tier = "gold"
+
+[[sponsor]]
+  name = "Liquidware"
+  logo = ""
+  url  = "https://www.liquidware.com"
+  tier = "gold"
+
+[[sponsor]]
+  name = "ControlUp"
+  logo = ""
+  url  = "https://www.controlup.com"
+  tier = "gold"
+
+[[sponsor]]
+  name = "Arrow"
+  logo = ""
+  url  = "https://www.arrow.com"
+  tier = "silver"
+
+[[sponsor]]
+  name = "Recast Software"
+  logo = ""
+  url  = "https://recastsoftware.com"
+  tier = "silver"
+
+[[sponsor]]
+  name = "ThinScale"
+  logo = ""
+  url  = "https://www.thinscale.com"
+  tier = "silver"
