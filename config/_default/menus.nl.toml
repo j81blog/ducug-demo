@@ -1,19 +1,19 @@
 [[main]]
   name   = "Evenementen"
-  url    = "/ducug-website/evenementen/"
+  url    = "/evenementen/"
   weight = 1
 
 [[main]]
   name   = "Sponsors"
-  url    = "/ducug-website/sponsor/"
+  url    = "/sponsor/"
   weight = 2
 
 [[main]]
   name   = "Over ons"
-  url    = "/ducug-website/over/"
+  url    = "/over/"
   weight = 3
 
 [[main]]
   name   = "Contact"
-  url    = "/ducug-website/contact/"
+  url    = "/contact/"
   weight = 4
