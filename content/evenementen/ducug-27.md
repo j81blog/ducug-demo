@@ -4,7 +4,6 @@ eventNumber    = 27
 date           = "2025-09-17"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-27/"]
@@ -33,4 +32,3 @@ Het evenement behandelde verbeteringen die Citrix doorvoerde in de 2507-release,
 | 15:15–15:45 | Pauze | — |
 | 15:45–16:45 | Beyond ChatGPT: De AI-tools die je nog niet kent maar wel zou moeten | Remko Weijnen |
 | 16:45–19:00 | Afsluiting & drinks | Niek Boevink |
-+++

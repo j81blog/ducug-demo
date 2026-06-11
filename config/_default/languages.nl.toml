@@ -1,8 +1,9 @@
-label = "Nederlands"
-weight       = 1
-title        = "DuCUG — Dutch Citrix User Group"
-locale       = "nl-NL"
+label  = "Nederlands"
+weight = 1
+title  = "DuCUG — Dutch Citrix User Group"
+locale = "nl-NL"
 
 [params]
+  htmlCode    = "nl"
   description = "De onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland."
   dateFormat  = "2 January 2006"

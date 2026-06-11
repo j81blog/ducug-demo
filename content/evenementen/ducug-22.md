@@ -4,7 +4,6 @@ eventNumber    = 22
 date           = "2023-03-22"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-22/"]

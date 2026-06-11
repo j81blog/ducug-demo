@@ -1,9 +1,12 @@
 ---
 title: "Sponsor worden"
 description: "Steun de Nederlandse Citrix- en EUC-community als sponsor van de DuCUG"
+kicker: "Steun de community"
 ---
 
 De DuCUG is een onafhankelijke stichting zonder financiële steun van Citrix of andere grote organisaties. Onze evenementen zijn gratis voor deelnemers — dat kunnen we alleen dankzij onze sponsors.
+
+{{< sponsorwall >}}
 
 Wij organiseren twee evenementen per jaar, elk met een specifiek technisch thema. **Sponsorende organisaties krijgen geen presentatieslot** — wij hanteren een strikt technisch programma om commerciële sessies te voorkomen.
 
@@ -34,4 +37,17 @@ Wij organiseren twee evenementen per jaar, elk met een specifiek technisch thema
 
 ## Interesse?
 
-Neem contact op via [info@ducug.nl](mailto:info@ducug.nl) of gebruik het [contactformulier](/ducug-website/contact/).
+Vul het onderstaande formulier in, of neem contact op via [info@ducug.nl](mailto:info@ducug.nl).
+
+<!-- BEGIN Podio web form -->
+<script src="https://podio.com/webforms/6266726/488258.js"></script>
+<script type="text/javascript">
+  _podioWebForm.render("488258")
+</script>
+<noscript>
+  <a href="https://podio.com/webforms/6266726/488258" target="_blank">Vul het formulier in via Podio</a>
+</noscript>
+<div class="podio-webform-container">
+A webform by Podio - <a class="podio-webform-inner" rel="nofollow" href="https://podio.com">click here</a> to get yours
+</div>
+<!-- END Podio web form -->

@@ -1,68 +1,129 @@
 {{ define "main" }}
-<div class="homepage">
+{{- $events := where .Site.RegularPages "Section" "evenementen" -}}
+{{- $upcoming := where $events "Params.archived" false -}}
+{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
+{{- $past := where $events "Params.archived" true -}}
+{{- $heroImg := resources.Get "img/photos/zaal-2018.jpg" -}}
+{{- if $heroImg }}{{ $heroImg = $heroImg.Resize "1800x q72" }}{{ end -}}
 
-  {{/* Hero */}}
-  <section class="hero mb-12 text-center">
-    <h1 class="text-4xl font-bold mb-4">{{ .Site.Title }}</h1>
-    <p class="text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto">
-      De community door en voor de Citrix professionals in Nederland
-    </p>
-  </section>
+{{/* ============================== Hero ============================== */}}
+<section class="dg-hero dg-bleed">
+  {{ with $heroImg }}<div class="dg-hero__photo" style="background-image:url('{{ .RelPermalink }}')"></div>{{ end }}
+  <div class="dg-hero__scrim"></div>
+  <div class="dg-hero__grid"></div>
+  <div class="dg-hero__in">
+    <p class="dg-kicker">Dutch Citrix User Group · sinds 2011</p>
+    <h1 class="dg-hero__title">De community dóór en vóór <span class="dg-grad-text">Citrix&#8209;professionals</span></h1>
+    <p class="dg-hero__lede">Twee keer per jaar komen EUC-, Citrix- en Digital Workspace-specialisten uit heel Nederland samen voor een dag vol technische sessies, klantcases en discussie. Gratis, onafhankelijk en zonder verkooppraatjes.</p>
+    <div class="dg-hero__actions">
+      {{ with $next }}
+      {{ if .Params.eventbriteUrl }}
+      <a class="dg-btn dg-btn--primary" href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener">Aanmelden voor {{ .Title }}</a>
+      {{ else }}
+      <a class="dg-btn dg-btn--primary" href="{{ .RelPermalink }}">Bekijk {{ .Title }}</a>
+      {{ end }}
+      {{ end }}
+      <a class="dg-btn dg-btn--ghost" href="{{ "evenementen/" | relLangURL }}">Alle evenementen</a>
+      <span class="dg-live-badge" data-live-only hidden>Live · vandaag</span>
+    </div>
+  </div>
+</section>
 
-  {{/* Next event */}}
-  {{ $upcoming := where (where .Site.RegularPages "Section" "evenementen") ".Params.archived" false }}
-  {{ $upcoming = $upcoming | first 1 }}
-  {{ range $upcoming }}
-  <section class="next-event mb-12 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800">
-    <p class="text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">Volgend evenement</p>
-    <h2 class="text-2xl font-bold mb-2">
-      <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
-    </h2>
-    <p class="text-neutral-600 dark:text-neutral-300 mb-1">
-      📅 {{ .Date | time.Format "2 January 2006" }}
-    </p>
-    <p class="text-neutral-600 dark:text-neutral-300 mb-4">
-      📍 {{ .Params.location }}
-    </p>
-    {{ if .Params.eventbriteUrl }}
-    <a href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener"
-       class="inline-block px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
-      Aanmelden via Eventbrite →
+{{/* ===================== Next-event floating card ===================== */}}
+{{ with $next }}
+<section class="dg-next">
+  <div class="dg-wrap">
+    <a href="{{ .RelPermalink }}" style="text-decoration:none;color:inherit">
+      <div class="dg-next__card">
+        <div class="dg-next__num dg-grad-text">#{{ .Params.eventNumber }}</div>
+        <div class="dg-next__meta">
+          {{ if lt now.Unix .Date.Unix }}
+          <p class="dg-next__label" data-live-hide>Volgend evenement</p>
+          {{ else }}
+          <p class="dg-next__label" data-live-hide>Meest recente editie</p>
+          {{ end }}
+          <p class="dg-next__label" data-live-only hidden>Vandaag · live</p>
+          <p class="dg-next__when">{{ .Date | time.Format "Monday 2 January 2006" }}</p>
+          <p class="dg-next__where">{{ .Params.location }}</p>
+        </div>
+        <div class="dg-next__count" data-countdown="{{ .Date.Format "2006-01-02" }}" hidden></div>
+      </div>
     </a>
-    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<div class="dg-wrap" style="padding-inline:0">
+
+  {{/* ===================== Event-day agenda takeover ===================== */}}
+  {{ with $next }}
+  {{ if .Params.sessions }}
+  <section class="dg-takeover" data-live-only hidden style="margin-bottom:clamp(3.5rem,7vw,5.5rem)">
+    <div class="dg-section-head">
+      <h2>Programma van vandaag <span class="dg-grad-text">· {{ .Title }}</span></h2>
+      <a class="dg-section-link" href="{{ .RelPermalink }}">EVENT-PAGINA →</a>
+    </div>
+    {{ partial "schedule.html" . }}
   </section>
   {{ end }}
-
-  {{/* Page content */}}
-  {{ with .Content }}
-  <section class="prose dark:prose-invert max-w-none mb-12">
-    {{ . }}
-  </section>
   {{ end }}
 
-  {{/* Sponsor wall */}}
-  {{ partial "sponsor-wall.html" . }}
+  {{/* ============================ Stats strip ============================ */}}
+  <section class="dg-stats dg-bleed dg-reveal" aria-label="DuCUG in cijfers">
+    <div class="dg-stats__item"><b><em>{{ len $events }}</em></b><span>edities</span></div>
+    <div class="dg-stats__item"><b>{{ sub now.Year 2011 }}<em> jaar</em></b><span>community</span></div>
+    <div class="dg-stats__item"><b>2<em>×</em></b><span>per jaar</span></div>
+    <div class="dg-stats__item"><b><em>€0</em></b><span>entree, altijd</span></div>
+  </section>
 
-  {{/* Recent events */}}
-  {{ $past := where (where .Site.RegularPages "Section" "evenementen") ".Params.archived" true }}
-  {{ $past = $past | first 5 }}
-  {{ if $past }}
-  <section class="recent-events mb-12">
-    <h2 class="text-2xl font-bold mb-6">Recente evenementen</h2>
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {{ range $past }}
-      <a href="{{ .RelPermalink }}" class="block p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-primary-400 transition-colors">
-        <p class="font-semibold text-lg mb-1">{{ .Title }}</p>
-        <p class="text-sm text-neutral-500">{{ .Date | time.Format "2 January 2006" }}</p>
-        <p class="text-sm text-neutral-500">{{ .Params.location }}</p>
+  {{/* ========================== Community band ========================== */}}
+  {{ $p1 := resources.Get "img/photos/publiek-2017.jpg" }}
+  {{ $p2 := resources.Get "img/photos/zaal-klassiek.jpg" }}
+  <section class="dg-community dg-bleed">
+    <div class="dg-wrap dg-community__in">
+      <div class="dg-reveal">
+        <p class="dg-kicker" style="color:var(--dg-green)">Kennis op eigen niveau</p>
+        <h2>Geen marketing.<br>Wél de inhoud.</h2>
+        <p>De DuCUG werd in 2011 opgericht door zes Citrix-professionals die een plek misten waar techniek écht centraal staat. Vandaag is het dé vaste ontmoetingsplaats voor consultants en engineers die werken aan de moderne digitale werkplek.</p>
+        <p>Sessies worden gegeven door de community zelf — via ons Bring Your Own Session-format bepaal jij mee wat er op het programma staat.</p>
+        <div class="dg-hero__actions" style="margin-top:1.8rem">
+          <a class="dg-btn dg-btn--ghost" href="{{ "over/" | relLangURL }}">Over de DuCUG</a>
+          <a class="dg-btn dg-btn--ghost" href="{{ "cfp/" | relLangURL }}">Dien een sessie in</a>
+        </div>
+      </div>
+      <div class="dg-community__photos dg-reveal">
+        {{ with $p1 }}{{ $i := .Resize "900x q75" }}<img src="{{ $i.RelPermalink }}" alt="Deelnemers tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+        {{ with $p2 }}{{ $i := .Resize "700x q75" }}<img src="{{ $i.RelPermalink }}" alt="De zaal tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ============================= Sponsors ============================= */}}
+  <section class="dg-sponsors dg-reveal">
+    <div class="dg-section-head">
+      <h2>Mogelijk gemaakt door</h2>
+      <a class="dg-section-link" href="{{ "sponsor/" | relLangURL }}">SPONSOR WORDEN →</a>
+    </div>
+    {{ partial "sponsor-wall.html" . }}
+  </section>
+
+  {{/* ========================== Recent events ========================== */}}
+  {{ with $past | first 3 }}
+  <section class="dg-reveal">
+    <div class="dg-section-head">
+      <h2>Vorige edities</h2>
+      <a class="dg-section-link" href="{{ "evenementen/" | relLangURL }}">VOLLEDIG ARCHIEF →</a>
+    </div>
+    <div class="dg-events-grid">
+      {{ range . }}
+      <a class="dg-event-card" href="{{ .RelPermalink }}">
+        <span class="dg-event-card__num">EDITIE {{ .Params.eventNumber }}</span>
+        <span class="dg-event-card__title">{{ .Title }}</span>
+        <span class="dg-event-card__meta">{{ .Date | time.Format "2 January 2006" }}<br>{{ index (split .Params.location ",") 0 }}</span>
+        <span class="dg-event-card__ghost" aria-hidden="true">#{{ .Params.eventNumber }}</span>
       </a>
       {{ end }}
     </div>
-    <p class="mt-4">
-      <a href="{{ "evenementen/" | relURL }}" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">
-        Alle evenementen bekijken →
-      </a>
-    </p>
   </section>
   {{ end }}
 

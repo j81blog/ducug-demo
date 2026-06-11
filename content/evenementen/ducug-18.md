@@ -4,7 +4,6 @@ eventNumber    = 18
 date           = "2020-06-29"
 location       = "Online evenement"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-18/", "/online-event/"]

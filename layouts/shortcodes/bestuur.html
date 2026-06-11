@@ -1,0 +1,12 @@
+{{- /* Board member grid, fed by data/bestuur.toml */ -}}
+<div class="dg-board">
+  {{ range (hugo.Data).bestuur.lid }}
+  <div class="dg-board__card">
+    <img src="{{ .foto | relURL }}" alt="{{ .naam }}" class="nozoom" loading="lazy">
+    <div class="dg-board__info">
+      <p class="dg-board__name">{{ .naam }}</p>
+      <p class="dg-board__role">{{ .rol }}</p>
+    </div>
+  </div>
+  {{ end }}
+</div>

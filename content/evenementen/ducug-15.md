@@ -4,7 +4,6 @@ eventNumber    = 15
 date           = "2018-11-16"
 location       = "DeFabrique, Westkanaaldijk 7, Utrecht"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-15/"]

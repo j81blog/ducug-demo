@@ -4,7 +4,6 @@ eventNumber    = 12
 date           = "2017-04-07"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-12-2/"]

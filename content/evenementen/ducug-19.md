@@ -4,7 +4,6 @@ eventNumber    = 19
 date           = "2021-09-29"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-19/"]

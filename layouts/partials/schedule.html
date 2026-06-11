@@ -1,0 +1,23 @@
+{{- /* Programma timeline. Expects an event page with [[sessions]] in front matter.
+     Rows carry data-start/data-end so extend-footer.html can highlight the
+     running session on the event day itself (or with ?demo=live). */ -}}
+{{- with .Params.sessions }}
+<ol class="dg-schedule" data-event-date="{{ $.Date.Format "2006-01-02" }}">
+  {{- range . }}
+  {{- $type := .type | default "talk" }}
+  <li class="dg-schedule__row dg-schedule__row--{{ $type }}{{ if .featured }} dg-schedule__row--featured{{ end }}"
+      data-start="{{ .start }}"{{ with .end }} data-end="{{ . }}"{{ end }}>
+    <span class="dg-schedule__time">{{ .start }}{{ with .end }}–{{ . }}{{ end }}</span>
+    <div>
+      <p class="dg-schedule__title">
+        {{- .title -}}
+        {{- if eq $type "sponsor" }}<span class="dg-tag dg-tag--sponsor">Sponsor</span>{{ end -}}
+        {{- if .featured }}<span class="dg-tag dg-tag--featured">Keynote</span>{{ end -}}
+        <span class="dg-now-pill">● Nu</span>
+      </p>
+      {{- with .speakers }}<p class="dg-schedule__speaker">{{ . }}</p>{{ end }}
+    </div>
+  </li>
+  {{- end }}
+</ol>
+{{- end }}

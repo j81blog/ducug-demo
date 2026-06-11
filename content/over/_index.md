@@ -1,6 +1,7 @@
 ---
 title: "Over de DuCUG"
 description: "De onafhankelijke community voor Citrix- en EUC-professionals in Nederland"
+kicker: "Wie we zijn"
 ---
 
 ## Wie zijn wij?
@@ -15,14 +16,7 @@ Zes Citrix-professionals richtten de DuCUG op in oktober 2011, geïnspireerd doo
 
 ## Bestuur
 
-| Naam | Functie |
-|------|---------|
-| Barry Schiffer | Voorzitter |
-| Kees Baggerman | Penningmeester |
-| Wilco van Bragt | Secretaris |
-| Niek Boevink | Bestuurslid |
-| Remko Weijnen | Bestuurslid |
-| Bram Wolfs | Bestuurslid |
+{{< bestuur >}}
 
 ## Contact
 

@@ -4,7 +4,6 @@ eventNumber    = 10
 date           = "2016-10-14"
 location       = "De Efteling, Europalaan 1, Kaatsheuvel"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-10/"]

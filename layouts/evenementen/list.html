@@ -1,49 +1,43 @@
 {{ define "main" }}
-<div class="evenementen-list">
+{{- $upcoming := where .Pages "Params.archived" false -}}
+{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
+{{- $past := where .Pages "Params.archived" true -}}
 
-  <header class="mb-10">
-    <h1 class="text-3xl font-bold mb-3">{{ .Title }}</h1>
-    {{ with .Content }}<div class="prose dark:prose-invert">{{ . }}</div>{{ end }}
-  </header>
+<header class="dg-page-head">
+  <p class="dg-kicker">Archief · {{ len .Pages }} edities</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose dark:prose-invert" style="max-width:60ch">{{ . }}</div>{{ end }}
+</header>
 
-  {{/* Upcoming events */}}
-  {{ $upcoming := where .Pages ".Params.archived" false }}
-  {{ if $upcoming }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-semibold mb-5">Aankomend</h2>
-    <div class="grid gap-4 sm:grid-cols-2">
-      {{ range $upcoming }}
-      <a href="{{ .RelPermalink }}" class="block p-6 rounded-xl border-2 border-primary-400 bg-primary-50 dark:bg-primary-900/20 hover:border-primary-600 transition-colors">
-        <p class="font-bold text-lg mb-1">{{ .Title }}</p>
-        <p class="text-sm text-neutral-600 dark:text-neutral-300">📅 {{ .Date | time.Format "2 January 2006" }}</p>
-        <p class="text-sm text-neutral-600 dark:text-neutral-300">📍 {{ .Params.location }}</p>
-        {{ if .Params.eventbriteUrl }}
-        <span class="inline-block mt-2 text-sm font-medium text-primary-600 dark:text-primary-400">Aanmelden →</span>
-        {{ end }}
-      </a>
-      {{ end }}
+{{/* Featured upcoming / most recent unarchived event */}}
+{{ with $next }}
+<a href="{{ .RelPermalink }}" style="text-decoration:none;color:inherit;display:block;margin-bottom:3rem">
+  <div class="dg-next__card">
+    <div class="dg-next__num dg-grad-text">#{{ .Params.eventNumber }}</div>
+    <div class="dg-next__meta">
+      <p class="dg-next__label">{{ if lt now.Unix .Date.Unix }}Volgend evenement{{ else }}Meest recente editie{{ end }}</p>
+      <p class="dg-next__when">{{ .Title }} · {{ .Date | time.Format "Monday 2 January 2006" }}</p>
+      <p class="dg-next__where">{{ .Params.location }}</p>
     </div>
-  </section>
-  {{ end }}
+    <span class="dg-btn dg-btn--primary">{{ if .Params.eventbriteUrl }}Aanmelden{{ else }}Programma{{ end }} →</span>
+  </div>
+</a>
+{{ end }}
 
-  {{/* Past events — grouped by year using Hugo's built-in GroupByDate */}}
-  {{ $past := where .Pages ".Params.archived" true }}
-  {{ $grouped := $past.GroupByDate "2006" }}
+{{/* Past events grouped by year */}}
+{{ range $past.GroupByDate "2006" }}
+<section class="dg-year dg-reveal">
+  <h2 class="dg-year__label">{{ .Key }}</h2>
+  <div>
+    {{ range .Pages }}
+    <a class="dg-archive-row" href="{{ .RelPermalink }}">
+      <span class="dg-archive-row__num">#{{ .Params.eventNumber }}</span>
+      <span class="dg-archive-row__title">{{ .Title }}</span>
+      <span class="dg-archive-row__meta">{{ .Date | time.Format "2 January" }} · {{ index (split .Params.location ",") 0 }}</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
 
-  {{ range $grouped }}
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-4 border-b border-neutral-200 dark:border-neutral-700 pb-2">{{ .Key }}</h2>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {{ range .Pages }}
-      <a href="{{ .RelPermalink }}" class="block p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-primary-400 transition-colors">
-        <p class="font-semibold mb-1">{{ .Title }}</p>
-        <p class="text-sm text-neutral-500">{{ .Date | time.Format "2 January 2006" }}</p>
-        <p class="text-sm text-neutral-500 truncate">{{ .Params.location }}</p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-</div>
 {{ end }}

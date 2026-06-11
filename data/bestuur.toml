@@ -1,0 +1,29 @@
+[[lid]]
+  naam   = "Barry Schiffer"
+  rol    = "Voorzitter"
+  foto   = "img/team/barry-schiffer.jpg"
+
+[[lid]]
+  naam   = "Kees Baggerman"
+  rol    = "Penningmeester"
+  foto   = "img/team/kees-baggerman.jpg"
+
+[[lid]]
+  naam   = "Wilco van Bragt"
+  rol    = "Secretaris"
+  foto   = "img/team/wilco-van-bragt.jpg"
+
+[[lid]]
+  naam   = "Niek Boevink"
+  rol    = "Bestuurslid"
+  foto   = "img/team/niek-boevink.jpg"
+
+[[lid]]
+  naam   = "Remko Weijnen"
+  rol    = "Bestuurslid"
+  foto   = "img/team/remko-weijnen.jpg"
+
+[[lid]]
+  naam   = "Bram Wolfs"
+  rol    = "Bestuurslid"
+  foto   = "img/team/bram-wolfs.jpg"

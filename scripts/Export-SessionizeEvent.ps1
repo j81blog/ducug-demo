@@ -11,9 +11,8 @@
       - A speaker section with name, title, and bio
       - A placeholder Verslag (report) section for manual completion
 
-    The generated file replaces any live Sessionize embed (sessionizeEmbedId is
-    cleared) and sets the event as archived. A board member can then add the
-    verslag text directly in the file or via Sveltia CMS.
+    The generated file sets the event as archived. A board member can then add
+    the verslag text directly in the file or via Sveltia CMS.
 
     Supports both manual execution and GitHub Actions automation via the
     -GitHubActionsOutput switch.
@@ -256,7 +255,6 @@ $Lines.Add("eventNumber    = $($EventNumber)")
 $Lines.Add("date           = `"$($EventDate)`"")
 $Lines.Add("location       = `"$($EventLocation)`"")
 $Lines.Add("eventbriteUrl  = `"$($EventbriteUrl)`"")
-$Lines.Add("sessionizeEmbedId = `"`"")
 $Lines.Add("archived       = true")
 $Lines.Add("draft          = false")
 $Lines.Add("+++")

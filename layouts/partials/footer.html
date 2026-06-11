@@ -1,0 +1,59 @@
+{{- /* DuCUG footer: dark band, overrides Blowfish footer but keeps its scripts */ -}}
+<footer id="site-footer" class="dg-footer dg-bleed print:hidden">
+  <div class="dg-wrap">
+    <div class="dg-footer__in">
+      <div>
+        <a href="{{ "" | relLangURL }}" class="dg-wordmark" aria-label="DuCUG — home">
+          {{ with resources.Get "img/site/ducug-badge.png" }}
+          <img src="{{ .RelPermalink }}" alt="DuCUG — Citrix User Group Community" class="dg-wordmark__badge nozoom" width="{{ .Width }}" height="{{ .Height }}">
+          {{ end }}
+          <span>
+            <span class="dg-wordmark__name">DuCUG</span>
+            <span class="dg-wordmark__sub">Dutch Citrix User Group</span>
+          </span>
+        </a>
+        <p class="dg-footer__tag">De onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland. Sinds 2011, twee keer per jaar, altijd gratis.</p>
+      </div>
+      <div>
+        <h3>Navigatie</h3>
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      <div>
+        <h3>Meedoen</h3>
+        <ul>
+          <li><a href="{{ "cfp/" | relLangURL }}">Call for Papers</a></li>
+          <li><a href="{{ "evaluatie/" | relLangURL }}">Evaluatie</a></li>
+          <li><a href="{{ "sponsor/" | relLangURL }}">Sponsor worden</a></li>
+          <li><a href="mailto:info@ducug.nl">info@ducug.nl</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="dg-footer__bar">
+      <span>{{ with .Site.Params.footer.copyright }}{{ . | markdownify }}{{ else }}&copy; {{ now.Format "2006" }} Stichting DuCUG{{ end }}</span>
+      <span>2× per jaar · gratis · dóór en vóór de community</span>
+    </div>
+  </div>
+
+  <script>
+    {{ if not .Site.Params.disableImageZoom | default true }}
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    {{ end }}
+  </script>
+  {{ $jsProcess := resources.Get "js/process.js" }}
+  {{ $jsProcess = $jsProcess | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  <script
+    type="text/javascript"
+    src="{{ $jsProcess.RelPermalink }}"
+    integrity="{{ $jsProcess.Data.Integrity }}"></script>
+  {{ if templates.Exists "partials/extend-footer.html" }}
+    {{ partialCached "extend-footer.html" . }}
+  {{ end }}
+</footer>

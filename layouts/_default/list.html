@@ -1,0 +1,9 @@
+{{ define "main" }}
+<header class="dg-page-head">
+  <p class="dg-kicker">{{ .Params.kicker | default "DuCUG" }}</p>
+  <h1>{{ .Title }}</h1>
+</header>
+<div class="prose dark:prose-invert" style="max-width:68ch">
+  {{ .Content }}
+</div>
+{{ end }}

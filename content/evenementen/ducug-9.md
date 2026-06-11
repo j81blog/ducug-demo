@@ -4,7 +4,6 @@ eventNumber    = 9
 date           = "2016-03-18"
 location       = "Global Knowledge Utrecht, Iepenhoeve 5, Nieuwegein"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-9/"]

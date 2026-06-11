@@ -1,46 +1,51 @@
 {{ define "main" }}
-<article class="event-single max-w-3xl">
+<article>
 
-  <header class="mb-8">
-    <h1 class="text-3xl font-bold mb-3">{{ .Title }}</h1>
-    <div class="flex flex-wrap gap-4 text-neutral-600 dark:text-neutral-300 mb-4">
-      <span>📅 {{ .Date | time.Format "2 January 2006" }}</span>
-      <span>📍 {{ .Params.location }}</span>
+  {{/* Dark event hero with giant ghost number */}}
+  <header class="dg-event-hero dg-bleed">
+    <div class="dg-event-hero__grid"></div>
+    <div class="dg-wrap dg-event-hero__in">
+      <span class="dg-event-hero__ghost" aria-hidden="true">#{{ .Params.eventNumber }}</span>
+      {{ if .Params.archived }}
+      <p class="dg-kicker" style="color:var(--dg-ink-muted)">Gearchiveerd evenement</p>
+      {{ else if lt now.Unix .Date.Unix }}
+      <p class="dg-kicker" style="color:var(--dg-green)">Volgend evenement</p>
+      {{ else }}
+      <p class="dg-kicker" style="color:var(--dg-green)">Meest recente editie</p>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+      <div class="dg-event-hero__chips">
+        <span class="dg-chip">{{ partial "icon.html" "calendar" }} {{ .Date | time.Format "Monday 2 January 2006" }}</span>
+        <span class="dg-chip">{{ partial "icon.html" "location-dot" }} {{ .Params.location }}</span>
+        <span class="dg-chip dg-chip--muted">Gratis toegang</span>
+        <span class="dg-live-badge" data-live-only hidden>Live · vandaag</span>
+      </div>
+      {{ if and (not .Params.archived) .Params.eventbriteUrl }}
+      <a class="dg-btn dg-btn--primary" href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener">Aanmelden via Eventbrite →</a>
+      {{ end }}
     </div>
-
-    {{ if not .Params.archived }}
-    {{/* Upcoming event: show registration and Sessionize embed */}}
-    {{ if .Params.eventbriteUrl }}
-    <a href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener"
-       class="inline-block px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors mb-4">
-      Aanmelden via Eventbrite →
-    </a>
-    {{ end }}
-
-    {{ if .Params.sessionizeEmbedId }}
-    <div class="sessionize-embed my-6">
-      {{ partial "sessionize-embed.html" . }}
-    </div>
-    {{ end }}
-    {{ else }}
-    {{/* Archived event badge */}}
-    <span class="inline-block px-3 py-1 rounded-full text-sm bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300">
-      Gearchiveerd evenement
-    </span>
-    {{ end }}
   </header>
 
-  <div class="prose dark:prose-invert max-w-none">
-    {{ .Content }}
+  {{ with .Content }}
+  <div class="prose dark:prose-invert max-w-none" style="margin-bottom:3rem">
+    {{ . }}
   </div>
+  {{ end }}
 
-  <nav class="event-nav mt-12 pt-6 border-t border-neutral-200 dark:border-neutral-700 flex justify-between text-sm">
-    {{ with .PrevInSection }}
-    <a href="{{ .RelPermalink }}" class="text-primary-600 dark:text-primary-400 hover:underline">← {{ .Title }}</a>
-    {{ else }}<span></span>{{ end }}
-    {{ with .NextInSection }}
-    <a href="{{ .RelPermalink }}" class="text-primary-600 dark:text-primary-400 hover:underline">{{ .Title }} →</a>
-    {{ end }}
+  {{/* Structured programma (with live highlighting on the day itself) */}}
+  {{ if .Params.sessions }}
+  <section style="margin-bottom:3rem">
+    <div class="dg-section-head">
+      <h2>Programma</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+    </div>
+    {{ partial "schedule.html" . }}
+  </section>
+  {{ end }}
+
+  <nav class="dg-event-nav" aria-label="Evenement-navigatie">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
   </nav>
 
 </article>

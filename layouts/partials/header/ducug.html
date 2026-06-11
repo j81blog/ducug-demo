@@ -1,0 +1,43 @@
+{{- /* DuCUG header: always-dark sticky bar with wordmark, nav and CTA */ -}}
+{{- $upcoming := where (where .Site.RegularPages "Section" "evenementen") "Params.archived" false -}}
+{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
+<header class="dg-header dg-bleed">
+  <div class="dg-wrap">
+    <div class="dg-header__in">
+      <a href="{{ "" | relLangURL }}" class="dg-wordmark" aria-label="DuCUG — home">
+        {{ with resources.Get "img/site/ducug-badge.png" }}
+        <img src="{{ .RelPermalink }}" alt="DuCUG — Citrix User Group Community" class="dg-wordmark__badge nozoom" width="{{ .Width }}" height="{{ .Height }}">
+        {{ end }}
+        <span>
+          <span class="dg-wordmark__name">DuCUG</span>
+          <span class="dg-wordmark__sub">Dutch Citrix User Group</span>
+        </span>
+      </a>
+      <nav class="dg-nav" aria-label="Hoofdmenu">
+        {{ range .Site.Menus.main }}
+        <a class="dg-nav__link" href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="true"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+        {{ with $next }}
+        <a class="dg-nav__cta" href="{{ if .Params.eventbriteUrl }}{{ .Params.eventbriteUrl }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Title }} →</a>
+        {{ end }}
+        {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
+        <button id="appearance-switcher" aria-label="Donkere modus wisselen" type="button" class="dg-appearance">
+          <div class="flex items-center justify-center dark:hidden">{{ partial "icon.html" "moon" }}</div>
+          <div class="items-center justify-center hidden dark:flex">{{ partial "icon.html" "sun" }}</div>
+        </button>
+        {{ end }}
+      </nav>
+      <button class="dg-burger" id="dg-burger" aria-label="Menu openen" aria-expanded="false" aria-controls="dg-mobile-nav">
+        {{ partial "icon.html" "bars" }}
+      </button>
+    </div>
+    <nav class="dg-mobile-nav" id="dg-mobile-nav" aria-label="Mobiel menu">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+      {{ with $next }}
+      <a href="{{ .RelPermalink }}">{{ .Title }} →</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

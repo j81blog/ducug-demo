@@ -1,7 +1,8 @@
-colorScheme           = "ocean"
+colorScheme           = "ducug"
 defaultAppearance     = "light"
 autoSwitchAppearance  = true
 disableImageZoom      = true
+isoCode               = "nl"
 
 description = "De onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland."
 
@@ -30,7 +31,7 @@ description = "De onafhankelijke community voor EUC-, Citrix- en Digital Workspa
   copyright            = "© Stichting DuCUG · KvK 54456754"
 
 [header]
-  layout = "basic"
+  layout = "ducug"
 
 [navigation]
   showLogo = false

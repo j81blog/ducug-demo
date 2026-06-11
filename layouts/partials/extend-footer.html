@@ -1,0 +1,100 @@
+<script>
+(function () {
+  "use strict";
+
+  /* Mobile menu */
+  var burger = document.getElementById("dg-burger");
+  var mobileNav = document.getElementById("dg-mobile-nav");
+  if (burger && mobileNav) {
+    burger.addEventListener("click", function () {
+      var open = mobileNav.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  /* Scroll reveal */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".dg-reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".dg-reveal").forEach(function (el) { el.classList.add("is-in"); });
+  }
+
+  /* Demo override: ?demo=live simulates the event day, ?demo=10:30 also pins the clock */
+  var demo = new URLSearchParams(window.location.search).get("demo");
+  var demoTime = demo && /^\d{1,2}:\d{2}$/.test(demo) ? demo : null;
+  var demoLive = demo !== null;
+
+  function todayStr(d) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+
+  function nowMinutes() {
+    if (demoTime) {
+      var p = demoTime.split(":");
+      return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+    }
+    var n = new Date();
+    return n.getHours() * 60 + n.getMinutes();
+  }
+
+  function toMin(hhmm) {
+    if (!hhmm) return null;
+    var p = hhmm.split(":");
+    return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+  }
+
+  /* Countdown — elements with data-countdown="YYYY-MM-DD" */
+  document.querySelectorAll("[data-countdown]").forEach(function (el) {
+    var target = new Date(el.getAttribute("data-countdown") + "T09:00:00");
+    var days = Math.ceil((target - new Date()) / 86400000);
+    if (demoLive) days = 0;
+    if (days > 0) {
+      var weeks = Math.floor(days / 7);
+      var rest = days % 7;
+      el.innerHTML =
+        '<div><b>' + days + '</b><span>dag' + (days === 1 ? "" : "en") + '</span></div>' +
+        (weeks > 0 ? '<div><b>' + weeks + '</b><span>we' + (weeks === 1 ? "ek" : "ken") + '</span></div>' : "");
+      el.hidden = false;
+    }
+  });
+
+  /* Event-day logic: schedules carry data-event-date; rows carry data-start/data-end */
+  document.querySelectorAll("[data-event-date]").forEach(function (sched) {
+    var isToday = demoLive || sched.getAttribute("data-event-date") === todayStr(new Date());
+    if (!isToday) return;
+
+    document.querySelectorAll("[data-live-only]").forEach(function (el) { el.hidden = false; });
+    document.querySelectorAll("[data-live-hide]").forEach(function (el) { el.hidden = true; });
+
+    function highlight() {
+      var now = nowMinutes();
+      var rows = sched.querySelectorAll("[data-start]");
+      var current = null;
+      rows.forEach(function (row) {
+        row.classList.remove("is-now");
+        var s = toMin(row.getAttribute("data-start"));
+        var e = toMin(row.getAttribute("data-end")) || (s + 30);
+        if (now >= s && now < e) current = row;
+      });
+      /* between sessions: highlight the next one */
+      if (!current) {
+        for (var i = 0; i < rows.length; i++) {
+          if (toMin(rows[i].getAttribute("data-start")) > now) { current = rows[i]; break; }
+        }
+      }
+      if (current) current.classList.add("is-now");
+    }
+
+    highlight();
+    setInterval(highlight, 60000);
+  });
+})();
+</script>

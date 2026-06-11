@@ -4,7 +4,6 @@ eventNumber    = 3
 date           = "2013-03-15"
 location       = "HP Amstelveen, Krijgsman 75, Amstelveen"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-3/"]

@@ -4,7 +4,6 @@ eventNumber    = 11
 date           = "2017-02-01"
 location       = "Citrix Amsterdam, Barbara Strozzilaan 201, Amsterdam"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-11/"]

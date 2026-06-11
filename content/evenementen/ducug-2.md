@@ -4,7 +4,6 @@ eventNumber    = 2
 date           = "2012-09-21"
 location       = "IBM Forum Amsterdam, Johan Huizingalaan 765, Amsterdam"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-2/"]

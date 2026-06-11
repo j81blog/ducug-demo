@@ -4,7 +4,6 @@ eventNumber    = 4
 date           = "2013-10-18"
 location       = "Dell Amsterdam, Transformatorweg 38-72, Amsterdam"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-4-2/"]

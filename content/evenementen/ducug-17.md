@@ -4,7 +4,6 @@ eventNumber    = 17
 date           = "2019-10-11"
 location       = "De Apenheul, J.C. Wilslaan 21, Apeldoorn"
 eventbriteUrl  = ""
-sessionizeEmbedId = ""
 archived       = true
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-17/"]
