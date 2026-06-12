@@ -1,6 +1,5 @@
 {{- /* DuCUG header: always-dark sticky bar with wordmark, nav and CTA */ -}}
-{{- $upcoming := where (where .Site.RegularPages "Section" "evenementen") "Params.archived" false -}}
-{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
+{{- $next := partial "next-event.html" . -}}
 <header class="dg-header dg-bleed">
   <div class="dg-wrap">
     <div class="dg-header__in">
@@ -18,8 +17,9 @@
         <a class="dg-nav__link" href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="true"{{ end }}>{{ .Name }}</a>
         {{ end }}
         {{ with $next }}
-        <a class="dg-nav__cta" href="{{ if .Params.eventbriteUrl }}{{ .Params.eventbriteUrl }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Title }} →</a>
+        <a class="dg-nav__cta" href="{{ if .Params.eventbriteUrl }}{{ .Params.eventbriteUrl }}{{ else }}{{ .RelPermalink }}{{ end }}" data-demo-hide="binnenkort">{{ .Title }} →</a>
         {{ end }}
+        <a class="dg-nav__cta" href="{{ "evenementen/" | relLangURL }}"{{ if $next }} hidden data-demo-show="binnenkort"{{ end }}>Binnenkort →</a>
         {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
         <button id="appearance-switcher" aria-label="Donkere modus wisselen" type="button" class="dg-appearance">
           <div class="flex items-center justify-center dark:hidden">{{ partial "icon.html" "moon" }}</div>
@@ -36,7 +36,7 @@
       <a href="{{ .URL }}">{{ .Name }}</a>
       {{ end }}
       {{ with $next }}
-      <a href="{{ .RelPermalink }}">{{ .Title }} →</a>
+      <a href="{{ .RelPermalink }}" data-demo-hide="binnenkort">{{ .Title }} →</a>
       {{ end }}
     </nav>
   </div>

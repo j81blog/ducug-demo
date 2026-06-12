@@ -3,7 +3,7 @@
      so older edities zonder JSON blijven gewoon werken. */ -}}
 {{- $sessions := .Params.sessions }}
 {{- with .Params.eventNumber }}
-  {{- $agenda := index (site.Data.agenda | default dict) (printf "ducug-%v" .) }}
+  {{- $agenda := index (hugo.Data.agenda | default dict) (printf "ducug-%v" .) }}
   {{- with $agenda }}{{ with .sessions }}{{ $sessions = . }}{{ end }}{{ end }}
 {{- end }}
 {{- return $sessions }}

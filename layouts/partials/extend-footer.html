@@ -27,10 +27,21 @@
     document.querySelectorAll(".dg-reveal").forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* Demo override: ?demo=live simulates the event day, ?demo=10:30 also pins the clock */
+  /* Demo override: ?demo=live simulates the event day, ?demo=10:30 also pins the clock.
+     Other keywords (binnenkort, geen-agenda) swap build-time varianten via
+     data-demo-show / data-demo-hide and must NOT trigger live mode. */
   var demo = new URLSearchParams(window.location.search).get("demo");
   var demoTime = demo && /^\d{1,2}:\d{2}$/.test(demo) ? demo : null;
-  var demoLive = demo !== null;
+  var demoLive = demo === "live" || demoTime !== null;
+
+  if (demo) {
+    document.querySelectorAll("[data-demo-show]").forEach(function (el) {
+      if (el.getAttribute("data-demo-show") === demo) el.hidden = false;
+    });
+    document.querySelectorAll("[data-demo-hide]").forEach(function (el) {
+      if (el.getAttribute("data-demo-hide") === demo) el.hidden = true;
+    });
+  }
 
   function todayStr(d) {
     return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");

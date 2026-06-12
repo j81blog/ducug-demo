@@ -1,8 +1,12 @@
 {{ define "main" }}
 {{- $events := where .Site.RegularPages "Section" "evenementen" -}}
-{{- $upcoming := where $events "Params.archived" false -}}
-{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
-{{- $past := where $events "Params.archived" true -}}
+{{- /* "Volgend evenement" = niet gearchiveerd én vandaag of in de toekomst.
+     Een editie die geweest is maar nog niet gearchiveerd, wordt niet opnieuw
+     uitgelicht; dan verschijnt de "Binnenkort"-kaart. */ -}}
+{{- $today := time.AsTime (now.Format "2006-01-02") -}}
+{{- $future := where (where $events "Params.archived" false) "Date" "ge" $today -}}
+{{- $next := index $future.ByDate 0 -}}
+{{- $past := $events.ByDate.Reverse | complement $future -}}
 {{- $heroImg := resources.Get "img/photos/zaal-2018.jpg" -}}
 {{- if $heroImg }}{{ $heroImg = $heroImg.Resize "1800x q72" }}{{ end -}}
 
@@ -18,9 +22,9 @@
     <div class="dg-hero__actions">
       {{ with $next }}
       {{ if .Params.eventbriteUrl }}
-      <a class="dg-btn dg-btn--primary" href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener">Aanmelden voor {{ .Title }}</a>
+      <a class="dg-btn dg-btn--primary" href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener" data-demo-hide="binnenkort">Aanmelden voor {{ .Title }}</a>
       {{ else }}
-      <a class="dg-btn dg-btn--primary" href="{{ .RelPermalink }}">Bekijk {{ .Title }}</a>
+      <a class="dg-btn dg-btn--primary" href="{{ .RelPermalink }}" data-demo-hide="binnenkort">Bekijk {{ .Title }}</a>
       {{ end }}
       {{ end }}
       <a class="dg-btn dg-btn--ghost" href="{{ "evenementen/" | relLangURL }}">Alle evenementen</a>
@@ -31,17 +35,13 @@
 
 {{/* ===================== Next-event floating card ===================== */}}
 {{ with $next }}
-<section class="dg-next">
+<section class="dg-next" data-demo-hide="binnenkort">
   <div class="dg-wrap">
     <a href="{{ .RelPermalink }}" style="text-decoration:none;color:inherit">
       <div class="dg-next__card">
         <div class="dg-next__num dg-grad-text">#{{ .Params.eventNumber }}</div>
         <div class="dg-next__meta">
-          {{ if lt now.Unix .Date.Unix }}
           <p class="dg-next__label" data-live-hide>Volgend evenement</p>
-          {{ else }}
-          <p class="dg-next__label" data-live-hide>Meest recente editie</p>
-          {{ end }}
           <p class="dg-next__label" data-live-only hidden>Vandaag · live</p>
           <p class="dg-next__when">{{ .Date | time.Format "Monday 2 January 2006" }}</p>
           <p class="dg-next__where">{{ .Params.location }}</p>
@@ -52,6 +52,24 @@
   </div>
 </section>
 {{ end }}
+
+{{/* "Binnenkort"-kaart: zichtbaar zodra er geen volgend evenement is;
+     anders verborgen demo-variant, te testen met ?demo=binnenkort */}}
+{{- $latest := index $past 0 -}}
+<section class="dg-next"{{ if $next }} hidden data-demo-show="binnenkort"{{ end }}>
+  <div class="dg-wrap">
+    <a href="{{ "evenementen/" | relLangURL }}" style="text-decoration:none;color:inherit">
+      <div class="dg-next__card">
+        <div class="dg-next__num dg-grad-text">#{{ with $latest }}{{ add .Params.eventNumber 1 }}{{ else }}?{{ end }}</div>
+        <div class="dg-next__meta">
+          <p class="dg-next__label">Volgend evenement</p>
+          <p class="dg-next__when">Binnenkort een nieuw evenement</p>
+          <p class="dg-next__where">Datum en locatie worden zo snel mogelijk aangekondigd. Houd deze pagina in de gaten.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
 
 <div class="dg-wrap" style="padding-inline:0">
 

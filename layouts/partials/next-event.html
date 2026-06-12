@@ -1,0 +1,6 @@
+{{- /* Geeft het volgende evenement terug: niet gearchiveerd én vandaag of in de
+     toekomst. Een voorbije, nog niet gearchiveerde editie telt niet mee. */ -}}
+{{- $today := time.AsTime (now.Format "2006-01-02") -}}
+{{- $future := where (where site.RegularPages "Section" "evenementen") "Params.archived" false -}}
+{{- $future = where $future "Date" "ge" $today -}}
+{{- return index $future.ByDate 0 -}}

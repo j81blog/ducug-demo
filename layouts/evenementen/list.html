@@ -1,7 +1,8 @@
 {{ define "main" }}
-{{- $upcoming := where .Pages "Params.archived" false -}}
-{{- $next := index ($upcoming.ByDate.Reverse) 0 -}}
-{{- $past := where .Pages "Params.archived" true -}}
+{{- $today := time.AsTime (now.Format "2006-01-02") -}}
+{{- $future := where (where .Pages "Params.archived" false) "Date" "ge" $today -}}
+{{- $next := index $future.ByDate 0 -}}
+{{- $past := .Pages.ByDate.Reverse | complement $future -}}
 
 <header class="dg-page-head">
   <p class="dg-kicker">Archief · {{ len .Pages }} edities</p>
@@ -15,13 +16,23 @@
   <div class="dg-next__card">
     <div class="dg-next__num dg-grad-text">#{{ .Params.eventNumber }}</div>
     <div class="dg-next__meta">
-      <p class="dg-next__label">{{ if lt now.Unix .Date.Unix }}Volgend evenement{{ else }}Meest recente editie{{ end }}</p>
+      <p class="dg-next__label">Volgend evenement</p>
       <p class="dg-next__when">{{ .Title }} · {{ .Date | time.Format "Monday 2 January 2006" }}</p>
       <p class="dg-next__where">{{ .Params.location }}</p>
     </div>
     <span class="dg-btn dg-btn--primary">{{ if .Params.eventbriteUrl }}Aanmelden{{ else }}Programma{{ end }} →</span>
   </div>
 </a>
+{{ else }}
+{{- $latest := index $past 0 -}}
+<div class="dg-next__card" style="margin-bottom:3rem">
+  <div class="dg-next__num dg-grad-text">#{{ with $latest }}{{ add .Params.eventNumber 1 }}{{ else }}?{{ end }}</div>
+  <div class="dg-next__meta">
+    <p class="dg-next__label">Volgend evenement</p>
+    <p class="dg-next__when">Binnenkort een nieuw evenement</p>
+    <p class="dg-next__where">Datum en locatie worden zo snel mogelijk aangekondigd.</p>
+  </div>
+</div>
 {{ end }}
 
 {{/* Past events grouped by year */}}

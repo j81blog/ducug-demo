@@ -1,6 +1,10 @@
 baseURL = "https://ducug-demo.j81.nl/"
 defaultContentLanguage = "nl"
-title = "DuCUG — Dutch Citrix User Group"
+title = "DuCUG · Dutch Citrix User Group"
+
+# Evenementen hebben een datum in de toekomst; zonder buildFuture bouwt Hugo
+# die pagina's niet en verschijnt een nieuw evenement nergens op de site.
+buildFuture = true
 
 [module]
   [[module.imports]]

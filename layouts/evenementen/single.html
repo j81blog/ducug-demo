@@ -33,13 +33,26 @@
   {{ end }}
 
   {{/* Structured programma (with live highlighting on the day itself) */}}
-  {{ if partial "event-sessions.html" . }}
-  <section style="margin-bottom:3rem">
+  {{ $sessions := partial "event-sessions.html" . }}
+  {{ if $sessions }}
+  <section style="margin-bottom:3rem" data-demo-hide="geen-agenda">
     <div class="dg-section-head">
       <h2>Programma</h2>
       <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
     </div>
     {{ partial "schedule.html" . }}
+  </section>
+  {{ end }}
+
+  {{/* Nieuw evenement zonder agenda-JSON: nette melding in plaats van niets.
+       Met sessies een verborgen demo-variant, te testen met ?demo=geen-agenda */}}
+  {{ if or $sessions (not .Params.archived) }}
+  <section style="margin-bottom:3rem"{{ if $sessions }} hidden data-demo-show="geen-agenda"{{ end }}>
+    <div class="dg-section-head">
+      <h2>Programma</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+    </div>
+    <p style="color:rgb(var(--color-neutral-500))">De agenda is nog niet bekend. Het programma verschijnt hier zodra het rond is.</p>
   </section>
   {{ end }}
 
