@@ -1,0 +1,9 @@
+{{- /* Returns the session list for an event page.
+     data/agenda/ducug-NN.json wins; [[sessions]] front matter is the fallback,
+     so older edities zonder JSON blijven gewoon werken. */ -}}
+{{- $sessions := .Params.sessions }}
+{{- with .Params.eventNumber }}
+  {{- $agenda := index (site.Data.agenda | default dict) (printf "ducug-%v" .) }}
+  {{- with $agenda }}{{ with .sessions }}{{ $sessions = . }}{{ end }}{{ end }}
+{{- end }}
+{{- return $sessions }}

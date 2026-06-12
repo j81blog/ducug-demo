@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "StoreFront 3 en X1 Receiver: nieuwe functionaliteiten en aanpassingen",
+      "speakers": "Simon Frost (Citrix Product Architect)",
+      "type": "talk"
+    },
+    {
+      "title": "XenApp met PowerShell Desired State Configuration",
+      "speakers": "Iain Brighton",
+      "type": "talk"
+    },
+    {
+      "title": "A bumpy road to hybrid cloud (klantcase)",
+      "speakers": "Niek Boevink",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: Nutanix and Citrix, a match made in heaven",
+      "speakers": "Bas van Kaam & Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: Citrix XenServer in de praktijk",
+      "speakers": "Michel Helderman",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: NetScaler functionaliteit",
+      "speakers": "Rick Roetenberg",
+      "type": "talk"
+    },
+    {
+      "title": "Azure RemoteApp: modellen, licenties en best practices",
+      "speakers": "Nicholas Dille",
+      "type": "talk"
+    },
+    {
+      "title": "Geek Speak Live: GPU, XenClient en Citrix Workspace Cloud",
+      "speakers": "Barry Schiffer & Kees Baggerman",
+      "type": "talk"
+    }
+  ]
+}

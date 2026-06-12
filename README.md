@@ -1,4 +1,4 @@
-# DuCUG — Dutch Citrix User Group
+# DuCUG · Dutch Citrix User Group
 
 Website van de DuCUG (vervanging van ducug.nl): community-site én live dag-agenda tijdens de twee jaarlijkse evenementen.
 
@@ -21,16 +21,19 @@ Vereist: Hugo extended ≥ 0.147 en Go (voor de Blowfish-module).
 | Pad | Wat |
 |-----|-----|
 | `content/evenementen/ducug-NN.md` | Eén bestand per editie (front matter + verslag) |
+| `data/agenda/ducug-NN.json` | Dagprogramma per editie (JSON, met schema-validatie) |
+| `assets/img/events/ducug-NN/` | Foto's per editie, verschijnen automatisch als galerij op de evenementpagina |
+| `schemas/agenda.schema.json` | JSON Schema voor de agenda's (autocomplete + validatie in VS Code) |
 | `data/sponsors.toml` | Sponsorwall (homepage, sponsorpagina) |
 | `data/bestuur.toml` | Bestuursleden ("Over ons", foto's in `static/img/team/`) |
 | `assets/css/custom.css` | Volledig design-systeem (alle `dg-*` classes) |
 | `assets/css/schemes/ducug.css` | Kleurenschema (Blowfish `colorScheme = "ducug"`) |
-| `layouts/partials/schedule.html` | Programma-timeline vanuit `[[sessions]]` front matter |
+| `layouts/partials/schedule.html` | Programma-timeline (via `event-sessions.html`) |
 | `layouts/partials/extend-footer.html` | JS: countdown, scroll-reveal, live-agenda-logica |
 
 ## Evenement toevoegen
 
-Nieuw bestand `content/evenementen/ducug-NN.md`:
+**1.** Nieuw bestand `content/evenementen/ducug-NN.md` (alleen metadata + intro):
 
 ```toml
 +++
@@ -40,31 +43,30 @@ date           = "2026-09-18"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
 eventbriteUrl  = ""        # CTA "Aanmelden" zodra ingevuld
 archived       = false     # false = "volgend evenement" op homepage
-
-[[sessions]]
-  start = "09:10"
-  end   = "09:20"
-  title = "Opening"
-  speakers = "Niek Boevink"
-  type  = "org"            # talk | sponsor | break | org | social
-
-[[sessions]]
-  start = "15:50"
-  end   = "16:50"
-  title = "Keynote-sessie"
-  speakers = "Spreker"
-  type  = "talk"
-  featured = true          # krijgt "Keynote"-badge + highlight
 +++
 
 Korte intro-tekst voor op de evenementpagina.
 ```
 
-- `type = "sponsor"` toont een **Sponsor**-tag; `break`/`social` worden gedempt weergegeven.
-- Na afloop: `archived = true` zetten (of de workflow hieronder gebruiken) — het evenement verhuist dan naar het archief.
-- Oudere edities zonder `[[sessions]]` tonen gewoon hun markdown-programmatabel.
+**2.** Dagprogramma in `data/agenda/ducug-NN.json` (VS Code geeft autocomplete en validatie via het schema):
 
-De workflow [archive-event.yml](.github/workflows/archive-event.yml) (handmatige trigger) haalt het definitieve programma op uit Sessionize en archiveert een editie automatisch.
+```json
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    { "start": "09:10", "end": "09:20", "title": "Opening", "speakers": "Niek Boevink", "type": "org" },
+    { "start": "15:50", "end": "16:50", "title": "Keynote-sessie", "speakers": "Spreker", "type": "talk", "featured": true }
+  ]
+}
+```
+
+- `type`: `talk` | `sponsor` (krijgt **Sponsor**-tag) | `break` | `org` | `social` (gedempt weergegeven). `featured: true` geeft de **Keynote**-badge.
+- De JSON wint van eventuele `[[sessions]]` in de front matter; oude edities zonder JSON of `[[sessions]]` tonen gewoon hun markdown-programmatabel.
+- Programma wijzigen = JSON aanpassen en pushen; de site rebuildt automatisch.
+- Na afloop: `archived = true` zetten (of de workflow hieronder gebruiken). Het evenement verhuist dan naar het archief.
+- Verslag na afloop: schrijf het onder `## Verslag` in het markdown-bestand. Foto's: zet ze in `assets/img/events/ducug-NN/` (max ±1600px breed), de galerij met lightbox verschijnt automatisch.
+
+De workflow [archive-event.yml](.github/workflows/archive-event.yml) (handmatige trigger) haalt het definitieve programma op uit Sessionize en archiveert een editie automatisch: de sessies komen in `data/agenda/ducug-NN.json` (sessietype daarna handmatig verfijnen naar `sponsor`/`org`/`social`), het verslag-sjabloon en de sprekers in het markdown-bestand.
 
 ## Live agenda-takeover (event-dag)
 
@@ -88,10 +90,10 @@ De takeover is op elke dag te simuleren met een query-parameter:
 
 Checklist bij het testen:
 
-1. `/?demo=live` — hero toont live-badge, dagprogramma verschijnt, countdown verdwijnt.
-2. `/?demo=09:00` — vóór de eerste sessie: de openingssessie is gemarkeerd als eerstvolgende.
-3. `/?demo=11:30` — sessie van 11:15–12:00 heeft de **NU**-pil.
-4. `/?demo=20:00` — na afloop: geen sessie meer gemarkeerd.
+1. `/?demo=live`: hero toont live-badge, dagprogramma verschijnt, countdown verdwijnt.
+2. `/?demo=09:00`: vóór de eerste sessie: de openingssessie is gemarkeerd als eerstvolgende.
+3. `/?demo=11:30`: sessie van 11:15–12:00 heeft de **NU**-pil.
+4. `/?demo=20:00`: na afloop: geen sessie meer gemarkeerd.
 5. Zonder parameter op een niet-event-dag: normale homepage met countdown ("dagen/weken") bij een toekomstige editie.
 
 ## Design-systeem (kort)

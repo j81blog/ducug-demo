@@ -1,13 +1,15 @@
-{{- /* Programma timeline. Expects an event page with [[sessions]] in front matter.
-     Rows carry data-start/data-end so extend-footer.html can highlight the
-     running session on the event day itself (or with ?demo=live). */ -}}
-{{- with .Params.sessions }}
+{{- /* Programma timeline. Sessions come from data/agenda/ducug-NN.json or
+     [[sessions]] front matter (see event-sessions.html). Rows carry
+     data-start/data-end so extend-footer.html can highlight the running
+     session on the event day itself (or with ?demo=live). */ -}}
+{{- with partial "event-sessions.html" . }}
 <ol class="dg-schedule" data-event-date="{{ $.Date.Format "2006-01-02" }}">
   {{- range . }}
   {{- $type := .type | default "talk" }}
+  {{- $start := .start }}{{- $end := .end }}
   <li class="dg-schedule__row dg-schedule__row--{{ $type }}{{ if .featured }} dg-schedule__row--featured{{ end }}"
-      data-start="{{ .start }}"{{ with .end }} data-end="{{ . }}"{{ end }}>
-    <span class="dg-schedule__time">{{ .start }}{{ with .end }}–{{ . }}{{ end }}</span>
+      {{- with $start }} data-start="{{ . }}"{{ end }}{{ with $end }} data-end="{{ . }}"{{ end }}>
+    <span class="dg-schedule__time">{{ if $start }}{{ $start }}{{ with $end }}–{{ . }}{{ end }}{{ else }}—{{ end }}</span>
     <div>
       <p class="dg-schedule__title">
         {{- .title -}}

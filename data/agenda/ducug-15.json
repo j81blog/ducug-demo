@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Old dogs and new tricks: login-tijden verkorten",
+      "speakers": "James Rankin",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: Citrix SD-WAN producttypes en use cases",
+      "speakers": "Rody Kossen & Anton van Pelt",
+      "type": "talk"
+    },
+    {
+      "title": "Office365 in non-persistent omgeving: productvergelijking",
+      "speakers": "David Wilkinson",
+      "type": "talk"
+    },
+    {
+      "title": "Ivanti Pulse demo",
+      "speakers": "Bob Jansen (Ivanti)",
+      "type": "talk"
+    },
+    {
+      "title": "Multi-site scenario's: SQL, Licensing, Citrix ADC, Files",
+      "speakers": "Dave Brett",
+      "type": "talk"
+    },
+    {
+      "title": "BYOD: Citrix Cloud monitoren via OData",
+      "speakers": "Eltjo van Gulik",
+      "type": "talk"
+    },
+    {
+      "title": "SD-WAN implementatie en lessons learned (KPN)",
+      "speakers": "Ruud Hunt (KPN)",
+      "type": "talk"
+    },
+    {
+      "title": "Automation of Citrix Images (PVS vDisk & MCS Azure)",
+      "speakers": "Chris Twiest",
+      "type": "talk"
+    },
+    {
+      "title": "Graphics settings en NVIDIA vGPU gebruikersdichtheid",
+      "speakers": "Ryan Ververs-Bijkerk",
+      "type": "talk"
+    }
+  ]
+}

@@ -7,9 +7,16 @@
     accepted sessions and speakers, and generates a Hugo Markdown content file
     in the evenementen/ section. The output file contains:
       - TOML front matter with event metadata
-      - A static session schedule table (time, title, speaker)
       - A speaker section with name, title, and bio
       - A placeholder Verslag (report) section for manual completion
+
+    When -AgendaOutputPath is provided, the session schedule is written as a
+    separate JSON agenda file (data/agenda/ducug-NN.json) that the site renders
+    as the programme timeline (including live event-day highlighting). Session
+    types are auto-detected as "break" (service sessions) or "talk"; refine to
+    sponsor/org/social by editing the JSON afterwards. Without
+    -AgendaOutputPath, the schedule is embedded as a static Markdown table
+    instead (legacy behaviour).
 
     The generated file sets the event as archived. A board member can then add
     the verslag text directly in the file or via Sveltia CMS.
@@ -45,6 +52,9 @@ param (
     [Parameter(Mandatory, HelpMessage = "Path to the Hugo content/evenementen directory.")]
     [ValidateNotNullOrEmpty()]
     [string]$OutputPath,
+
+    [Parameter(HelpMessage = "Path to the Hugo data/agenda directory. If provided, the schedule is written as ducug-NN.json instead of a Markdown table.")]
+    [string]$AgendaOutputPath = "",
 
     [Parameter(HelpMessage = "Eventbrite event URL. If omitted, the field is left empty in the front matter.")]
     [string]$EventbriteUrl = "",
@@ -146,6 +156,19 @@ $OutputFile = Join-Path -Path $OutputPath -ChildPath "ducug-$($EventNumber).md"
 
 if ((Test-Path -Path $OutputFile) -and (-not $Force)) {
     throw "Output file already exists: $($OutputFile). Use -Force to overwrite."
+}
+
+$WriteAgendaJson = -not [string]::IsNullOrWhiteSpace($AgendaOutputPath)
+$AgendaFile = $null
+
+if ($WriteAgendaJson) {
+    if (-not (Test-Path -Path $AgendaOutputPath -PathType Container)) {
+        throw "Agenda output path does not exist or is not a directory: $($AgendaOutputPath)"
+    }
+    $AgendaFile = Join-Path -Path $AgendaOutputPath -ChildPath "ducug-$($EventNumber).json"
+    if ((Test-Path -Path $AgendaFile) -and (-not $Force)) {
+        throw "Agenda file already exists: $($AgendaFile). Use -Force to overwrite."
+    }
 }
 
 #endregion
@@ -268,26 +291,23 @@ $Lines.Add("")
 $Lines.Add("---")
 $Lines.Add("")
 
-# --- Programme table ---
-$Lines.Add("## Programma")
-$Lines.Add("")
-$Lines.Add("| Tijd | Sessie | Spreker(s) |")
-$Lines.Add("|------|--------|------------|")
+# --- Schedule rows (shared between JSON agenda and Markdown table) ---
+$ScheduleRows = [System.Collections.Generic.List[hashtable]]::new()
 
 foreach ($Session in $SortedSessions) {
-    # Format time slot
-    $TimeSlot = ""
+    # Format start/end times
+    $StartTime = ""
+    $EndTime = ""
     if ($null -ne $Session.startsAt -and $Session.startsAt -ne "") {
         try {
-            $Start = [datetime]$Session.startsAt
-            $TimeSlot = $Start.ToString("HH:mm")
+            $StartTime = ([datetime]$Session.startsAt).ToString("HH:mm")
             if ($null -ne $Session.endsAt -and $Session.endsAt -ne "") {
-                $End = [datetime]$Session.endsAt
-                $TimeSlot = "$($TimeSlot)–$($End.ToString("HH:mm"))"
+                $EndTime = ([datetime]$Session.endsAt).ToString("HH:mm")
             }
         }
         catch {
-            $TimeSlot = ""
+            $StartTime = ""
+            $EndTime = ""
         }
     }
 
@@ -304,18 +324,49 @@ foreach ($Session in $SortedSessions) {
         }
     }
 
-    $SpeakerCell = if ($SpeakerNames.Count -gt 0) { $SpeakerNames -join ", " } else { "—" }
+    $IsService = $false
+    if ($Session.PSObject.Properties.Name -contains "isServiceSession") {
+        $IsService = [bool]$Session.isServiceSession
+    }
 
-    $TitleCell   = ConvertTo-SafeMarkdown -InputString $Session.title
-    $SpeakerCell = ConvertTo-SafeMarkdown -InputString $SpeakerCell
-    $TimeCell    = ConvertTo-SafeMarkdown -InputString $TimeSlot
-
-    $Lines.Add("| $($TimeCell) | $($TitleCell) | $($SpeakerCell) |")
+    $ScheduleRows.Add(@{
+        Start    = $StartTime
+        End      = $EndTime
+        Title    = [string]$Session.title
+        Speakers = ($SpeakerNames -join ", ")
+        Type     = if ($IsService) { "break" } else { "talk" }
+    })
 }
 
-$Lines.Add("")
-$Lines.Add("---")
-$Lines.Add("")
+if ($WriteAgendaJson) {
+    # Schedule lives in data/agenda/ducug-NN.json; the site renders the timeline.
+    Write-Log "Schedule will be written to JSON agenda file; Markdown table omitted."
+}
+else {
+    # --- Programme table (legacy: no agenda JSON requested) ---
+    $Lines.Add("## Programma")
+    $Lines.Add("")
+    $Lines.Add("| Tijd | Sessie | Spreker(s) |")
+    $Lines.Add("|------|--------|------------|")
+
+    foreach ($Row in $ScheduleRows) {
+        $TimeSlot = $Row.Start
+        if ($Row.End -ne "") {
+            $TimeSlot = "$($Row.Start)–$($Row.End)"
+        }
+        $SpeakerCell = if ($Row.Speakers -ne "") { $Row.Speakers } else { "—" }
+
+        $TitleCell   = ConvertTo-SafeMarkdown -InputString $Row.Title
+        $SpeakerCell = ConvertTo-SafeMarkdown -InputString $SpeakerCell
+        $TimeCell    = ConvertTo-SafeMarkdown -InputString $TimeSlot
+
+        $Lines.Add("| $($TimeCell) | $($TitleCell) | $($SpeakerCell) |")
+    }
+
+    $Lines.Add("")
+    $Lines.Add("---")
+    $Lines.Add("")
+}
 
 # --- Speakers section ---
 if ($Speakers.Count -gt 0) {
@@ -359,6 +410,29 @@ if ($PSCmdlet.ShouldProcess($OutputFile, "Write Hugo archive page")) {
     Write-Log "Written: $($OutputFile)"
 }
 
+if ($WriteAgendaJson) {
+    $AgendaSessions = foreach ($Row in $ScheduleRows) {
+        $Entry = [ordered]@{ start = $Row.Start }
+        if ($Row.End -ne "")      { $Entry["end"] = $Row.End }
+        $Entry["title"] = $Row.Title
+        if ($Row.Speakers -ne "") { $Entry["speakers"] = $Row.Speakers }
+        $Entry["type"] = $Row.Type
+        $Entry
+    }
+
+    $Agenda = [ordered]@{
+        '$schema' = "../../schemas/agenda.schema.json"
+        sessions  = @($AgendaSessions)
+    }
+
+    if ($PSCmdlet.ShouldProcess($AgendaFile, "Write JSON agenda")) {
+        $AgendaJson = $Agenda | ConvertTo-Json -Depth 4
+        $Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+        [System.IO.File]::WriteAllText($AgendaFile, "$($AgendaJson)`n", $Utf8NoBom)
+        Write-Log "Written: $($AgendaFile)"
+    }
+}
+
 #endregion
 
 #region --- GitHub Actions output ---
@@ -368,6 +442,9 @@ if ($GitHubActionsOutput) {
     if (-not [string]::IsNullOrEmpty($GhOutputPath)) {
         "output_file=$($OutputFile)" | Out-File -FilePath $GhOutputPath -Encoding utf8 -Append
         "event_number=$($EventNumber)"  | Out-File -FilePath $GhOutputPath -Encoding utf8 -Append
+        if ($WriteAgendaJson) {
+            "agenda_file=$($AgendaFile)" | Out-File -FilePath $GhOutputPath -Encoding utf8 -Append
+        }
         Write-Log "GitHub Actions output variables written."
     }
     else {

@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Windows Server 2012 RDSH & RDVH",
+      "speakers": "Danny van Dam",
+      "type": "talk"
+    },
+    {
+      "title": "VirtuAll User Environment Manager: evolutie en community feedback",
+      "speakers": "Pierre Marmignon (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix-beleid: beheerconsole vs. GPO's",
+      "speakers": "Arno Kreek",
+      "type": "talk"
+    },
+    {
+      "title": "Personal vDisk implementatie in XenDesktop >5.5",
+      "speakers": "Jits Langedijk",
+      "type": "talk"
+    },
+    {
+      "title": "Klantcase: praktijkuitdagingen voor Citrix-professionals",
+      "speakers": "Wilco van Bragt (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "Wetenschappelijke aanpak voor XenApp farm scaling",
+      "speakers": "Helge Klein (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "GeekSpeak Live: interactieve discussie",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix HDX System-on-Chip demo",
+      "speakers": "Stefan Pieters (Citrix)",
+      "type": "talk"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:10",
+      "end": "09:20",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:20",
+      "end": "10:05",
+      "title": "Keynote",
+      "speakers": "Shawn Bass",
+      "type": "talk",
+      "featured": true
+    },
+    {
+      "start": "10:10",
+      "end": "10:30",
+      "title": "Become a DEXPERT with ControlUp One",
+      "speakers": "Peter Nap, Chris Twiest (ControlUp)",
+      "type": "talk"
+    },
+    {
+      "start": "10:30",
+      "end": "11:00",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "11:00",
+      "end": "11:30",
+      "title": "BYO Session: Configuration Framework (CoreLogic)",
+      "speakers": "Jan Tytgat",
+      "type": "talk"
+    },
+    {
+      "start": "11:35",
+      "end": "12:05",
+      "title": "BYO Session: Home/Office/Life Automation",
+      "speakers": "Ingmar Verheij",
+      "type": "talk"
+    },
+    {
+      "start": "12:10",
+      "end": "12:30",
+      "title": "eG Innovations sponsorsessie",
+      "speakers": "eG Innovations",
+      "type": "sponsor"
+    },
+    {
+      "start": "12:30",
+      "end": "13:30",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:30",
+      "end": "14:15",
+      "title": "Securing Session Hosts: security tips",
+      "speakers": "Patrick van den Born, Stefan Dingemanse",
+      "type": "talk"
+    },
+    {
+      "start": "14:20",
+      "end": "14:50",
+      "title": "AI Use Cases analyse",
+      "speakers": "Gerjon Kunst",
+      "type": "talk"
+    },
+    {
+      "start": "14:55",
+      "end": "15:15",
+      "title": "Ivanti sponsorsessie",
+      "speakers": "Ivanti",
+      "type": "sponsor"
+    },
+    {
+      "start": "15:15",
+      "end": "15:45",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "15:45",
+      "end": "16:30",
+      "title": "NetScaler Beyond Gateway",
+      "speakers": "Koen Warson",
+      "type": "talk"
+    },
+    {
+      "start": "16:35",
+      "end": "17:05",
+      "title": "Closing Keynote",
+      "speakers": "Shawn Bass",
+      "type": "talk",
+      "featured": true
+    },
+    {
+      "start": "17:05",
+      "end": "17:10",
+      "title": "Afsluiting",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "17:10",
+      "end": "19:00",
+      "title": "Drinks & diner",
+      "type": "social"
+    }
+  ]
+}

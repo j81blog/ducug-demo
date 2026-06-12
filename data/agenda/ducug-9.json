@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Opening en sponsorerkenning",
+      "speakers": "Jon Jager",
+      "type": "org"
+    },
+    {
+      "title": "What's new @Citrix: StoreFront 3.5 nieuwe features",
+      "speakers": "Timco Hazelaar",
+      "type": "talk"
+    },
+    {
+      "title": "What's new @Citrix: Zones in XenDesktop 7.7/7.8",
+      "speakers": "Wilco van Bragt",
+      "type": "talk"
+    },
+    {
+      "title": "What's new @Citrix: Citrix AppDisks introductie",
+      "speakers": "Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix LifeCycle Management",
+      "speakers": "Andrew Wood",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: ICA vs RDP vergelijkende tests",
+      "speakers": "Gerjon Kunst & Patrick Kaak",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: Application layering overzicht",
+      "speakers": "Andrew Morgan",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: HDX Display Modes en Remote Display Analyzer",
+      "speakers": "Barry Schiffer & Bram Wolfs",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: ASML Remote Engineering Workplace (klantcase)",
+      "speakers": "Sander v/d Hoek & Ment v/d Plas",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: IoT in Enterprise-toepassingen",
+      "speakers": "Ingmar Verheij & Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix monitoring: Director, Session Recording en toekomst",
+      "speakers": "Jarian Gibson",
+      "type": "talk"
+    }
+  ]
+}

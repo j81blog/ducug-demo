@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:10",
+      "end": "09:25",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:30",
+      "end": "10:00",
+      "title": "Optimizing VDI Performance: Unveiling the Latest Insights and Strategies",
+      "speakers": "Sven Huisman",
+      "type": "talk"
+    },
+    {
+      "start": "10:05",
+      "end": "10:20",
+      "title": "ThinScale: Securing the Edge",
+      "speakers": "Bas van Goor (ThinScale)",
+      "type": "talk"
+    },
+    {
+      "start": "10:20",
+      "end": "11:00",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "11:00",
+      "end": "11:30",
+      "title": "Klantcase",
+      "speakers": "Sietze van de Schoor",
+      "type": "talk"
+    },
+    {
+      "start": "11:35",
+      "end": "12:20",
+      "title": "HDX Innovations, Tips & Tricks",
+      "speakers": "Rody Kossen, Muhammad Dawood, Eltjo van Gulik",
+      "type": "talk"
+    },
+    {
+      "start": "12:20",
+      "end": "13:15",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:15",
+      "end": "14:15",
+      "title": "Citrix DaaS: Access and Transport Layer",
+      "speakers": "Thorsten Rood",
+      "type": "talk"
+    },
+    {
+      "start": "14:20",
+      "end": "14:50",
+      "title": "Waarom is WEM de next step",
+      "speakers": "Jeroen Meppelink",
+      "type": "talk"
+    },
+    {
+      "start": "14:50",
+      "end": "15:15",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "15:15",
+      "end": "15:30",
+      "title": "ControlUp sponsorsessie",
+      "speakers": "ControlUp",
+      "type": "sponsor"
+    },
+    {
+      "start": "15:35",
+      "end": "16:20",
+      "title": "Citrix Cloud Modern Technologies voor pure Azure AD deployments",
+      "speakers": "Javier Lopez Santacruz",
+      "type": "talk"
+    },
+    {
+      "start": "16:25",
+      "end": "16:55",
+      "title": "IaC framework voor MSP's",
+      "speakers": "Leon Wijnhoven, Seth Daemen",
+      "type": "talk"
+    },
+    {
+      "start": "16:55",
+      "end": "17:00",
+      "title": "Afsluiting",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "17:00",
+      "end": "20:00",
+      "title": "Drinks & BBQ-diner",
+      "type": "social"
+    }
+  ]
+}

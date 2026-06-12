@@ -8,9 +8,7 @@ archived       = false
 draft          = true
 +++
 
-## Programma
-
-*Agenda volgt.*
+<!-- Dagprogramma: maak data/agenda/ducug-NN.json aan (zie README) -->
 
 ## Verslag
 

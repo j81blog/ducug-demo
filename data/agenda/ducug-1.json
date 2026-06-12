@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "NDA-sessie: toekomst Citrix-portfolio",
+      "speakers": "Andreas van Wingerden (Citrix)",
+      "type": "talk"
+    },
+    {
+      "title": "Complexe migratiescenario's bij de gemeente Amsterdam",
+      "speakers": "Ruben Giacotto",
+      "type": "talk"
+    },
+    {
+      "title": "Windows 7 workstation IOPS-analyse",
+      "speakers": "Jim Moyle",
+      "type": "talk"
+    },
+    {
+      "title": "Cloud computing uitdagingen",
+      "speakers": "Stefan Willems",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: diverse onderwerpen",
+      "speakers": "Niek Boevink, Stefan Willems, Danny van Dam",
+      "type": "talk"
+    },
+    {
+      "title": "Applicatie opstarttijd en gebruikerservaring",
+      "speakers": "Ingmar Verheij",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix HDX breakdown",
+      "speakers": "Barry Schiffer",
+      "type": "talk"
+    },
+    {
+      "title": "XenApp 5 naar 6.x migratie best practices",
+      "speakers": "Wilco van Bragt",
+      "type": "talk"
+    }
+  ]
+}

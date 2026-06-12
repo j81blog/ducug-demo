@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Citrix Application Layering",
+      "speakers": "Jeff Pitch (Citrix)",
+      "type": "talk"
+    },
+    {
+      "title": "App-V 5",
+      "speakers": "Tim Mangan",
+      "type": "talk"
+    },
+    {
+      "title": "XenDesktop Linux VDA implementatie (klantcase Thales)",
+      "speakers": "Bart Groot Zevert & Behroez Moosavi",
+      "type": "talk"
+    },
+    {
+      "title": "Security Solutions",
+      "speakers": "Mihia Barpascu (Bitdefender)",
+      "type": "talk"
+    },
+    {
+      "title": "Octoblu met NetScaler",
+      "speakers": "Dave Brett",
+      "type": "talk"
+    },
+    {
+      "title": "Windows Server 2016 Performance",
+      "speakers": "Mark Plettenberg",
+      "type": "talk"
+    },
+    {
+      "title": "ControlUP Monitoring",
+      "speakers": "Matan Nataf",
+      "type": "talk"
+    },
+    {
+      "title": "BYOD: GPU overwegingen",
+      "speakers": "Magnar Johnson",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: Windows 10 VDI-migraties",
+      "speakers": "Gerjon Kunst",
+      "type": "talk"
+    },
+    {
+      "title": "Geek Speak Panel",
+      "speakers": "Jits Langendijk (moderator)",
+      "type": "talk"
+    }
+  ]
+}

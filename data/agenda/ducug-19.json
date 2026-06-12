@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:15",
+      "end": "09:30",
+      "title": "Opening",
+      "speakers": "Barry Schiffer",
+      "type": "org"
+    },
+    {
+      "start": "09:35",
+      "end": "09:50",
+      "title": "ControlUp: Session Monitoring & Troubleshooting",
+      "speakers": "ControlUp",
+      "type": "sponsor"
+    },
+    {
+      "start": "09:55",
+      "end": "10:55",
+      "title": "Citrix Keynote",
+      "speakers": "Ingmar Verheij, Niek Boevink",
+      "type": "talk",
+      "featured": true
+    },
+    {
+      "start": "11:00",
+      "end": "11:40",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "11:45",
+      "end": "12:30",
+      "title": "Referentiecase \"Hollands Kroon\"",
+      "speakers": "Gerjon Kunst",
+      "type": "talk"
+    },
+    {
+      "start": "12:30",
+      "end": "13:40",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:45",
+      "end": "14:00",
+      "title": "Liquidware: Application Management",
+      "speakers": "Liquidware",
+      "type": "sponsor"
+    },
+    {
+      "start": "14:05",
+      "end": "14:50",
+      "title": "Deploying Windows 10 Enterprise multi-session met Azure DevOps, Terraform en Packer",
+      "speakers": "Patrick van den Born, Rick Stijnman",
+      "type": "talk"
+    },
+    {
+      "start": "14:50",
+      "end": "15:30",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "15:35",
+      "end": "15:50",
+      "title": "Nutanix presentatie",
+      "speakers": "Nutanix",
+      "type": "sponsor"
+    },
+    {
+      "start": "15:55",
+      "end": "16:30",
+      "title": "Mastering EUC Performance",
+      "speakers": "Rody Kossen, Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "start": "16:35",
+      "end": "16:45",
+      "title": "Afsluiting",
+      "speakers": "Barry Schiffer",
+      "type": "org"
+    },
+    {
+      "start": "16:45",
+      "end": "17:30",
+      "title": "Receptie",
+      "type": "social"
+    },
+    {
+      "start": "17:30",
+      "end": "21:00",
+      "title": "BBQ-diner",
+      "type": "social"
+    }
+  ]
+}

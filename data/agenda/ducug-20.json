@@ -1,0 +1,105 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:15",
+      "end": "09:30",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:35",
+      "end": "09:50",
+      "title": "Liquit: Lamb Weston klantcase",
+      "speakers": "Liquit",
+      "type": "sponsor"
+    },
+    {
+      "start": "09:55",
+      "end": "10:15",
+      "title": "Community tools (OPT4ADC, LeCertforNS, J81.ADCToolkit)",
+      "speakers": "John Billekens",
+      "type": "talk"
+    },
+    {
+      "start": "10:20",
+      "end": "10:40",
+      "title": "Using Nitro for Turbo (ADC)",
+      "speakers": "Mick Hilhorst",
+      "type": "talk"
+    },
+    {
+      "start": "10:40",
+      "end": "11:40",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "11:45",
+      "end": "12:30",
+      "title": "Citrix Secure Access",
+      "speakers": "Al Taylor",
+      "type": "talk"
+    },
+    {
+      "start": "12:30",
+      "end": "13:40",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:45",
+      "end": "14:00",
+      "title": "ThinScale: hybrid endpoint security",
+      "speakers": "ThinScale",
+      "type": "sponsor"
+    },
+    {
+      "start": "14:05",
+      "end": "14:30",
+      "title": "VDI monitoring productkeuze",
+      "speakers": "Wilco van Bragt",
+      "type": "talk"
+    },
+    {
+      "start": "14:35",
+      "end": "14:50",
+      "title": "Nutanix: network security demo",
+      "speakers": "Nutanix",
+      "type": "sponsor"
+    },
+    {
+      "start": "14:50",
+      "end": "15:30",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "15:35",
+      "end": "16:35",
+      "title": "Citrix HDX verbeteringen",
+      "speakers": "Rody Kossen",
+      "type": "talk"
+    },
+    {
+      "start": "16:40",
+      "end": "17:20",
+      "title": "Fun, games & prizes",
+      "speakers": "Remko Weijnen, Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "start": "17:00",
+      "end": "18:00",
+      "title": "Drinks",
+      "type": "social"
+    },
+    {
+      "start": "18:00",
+      "end": "21:00",
+      "title": "BBQ-diner",
+      "type": "social"
+    }
+  ]
+}

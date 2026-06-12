@@ -1,0 +1,10 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Citrix Summit 2017 aankondigingen: UniDesk-overname en Microsoft-samenwerking",
+      "speakers": "Christian Reilly (Citrix CTO)",
+      "type": "talk"
+    }
+  ]
+}

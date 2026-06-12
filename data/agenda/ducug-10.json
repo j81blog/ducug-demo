@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:30",
+      "title": "Opening",
+      "speakers": "Jon Jager (DuCUG voorzitter)",
+      "type": "org"
+    },
+    {
+      "title": "Trends en Citrix-visie rond Cloud en IoT",
+      "speakers": "Simon Frost (vervangt Citrix CTO Christian Reilly)",
+      "type": "talk"
+    },
+    {
+      "title": "User Environment Computing: cloud, SaaS, identity en beveiliging",
+      "speakers": "Shawn Bass (VMware ETO for EUC)",
+      "type": "talk"
+    },
+    {
+      "title": "Innovating the Digital Workspace",
+      "speakers": "Bob Jansen (RES Software)",
+      "type": "talk"
+    },
+    {
+      "title": "The 2020 Workspace: mobiele apps, VDI, DaaS en IT-trends",
+      "speakers": "Ruben Spruijt & Jeroen van der Kamp",
+      "type": "talk"
+    },
+    {
+      "title": "XenApp en XenDesktop op Windows Server 2016",
+      "speakers": "Benny Tritsch",
+      "type": "talk"
+    },
+    {
+      "title": "CTO Roundtable",
+      "speakers": "Frost, Bass, Janssen, Tritsch (moderator: Spruijt)",
+      "type": "talk"
+    },
+    {
+      "title": "Afsluiting: Exclusieve toegang Baron 1898",
+      "type": "social"
+    }
+  ]
+}

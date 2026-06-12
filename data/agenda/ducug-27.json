@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:15",
+      "end": "09:25",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:30",
+      "end": "10:30",
+      "title": "Citrix, what's new",
+      "speakers": "Rody Kossen",
+      "type": "talk"
+    },
+    {
+      "start": "10:30",
+      "end": "11:00",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "11:00",
+      "end": "11:20",
+      "title": "Nexthink sponsorsessie",
+      "speakers": "Nexthink",
+      "type": "sponsor"
+    },
+    {
+      "start": "11:25",
+      "end": "11:55",
+      "title": "TLSv1.2 vs TLSv1.3: A Deep Dive into Handshake Efficiency",
+      "speakers": "Mick Hilhorst",
+      "type": "talk"
+    },
+    {
+      "start": "12:00",
+      "end": "12:30",
+      "title": "Eenvoudige migratie van IWC naar WEM met de conversietool van Citrix",
+      "speakers": "Rick Roetenberg, Bas Stapelbroek",
+      "type": "talk"
+    },
+    {
+      "start": "12:30",
+      "end": "13:30",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:30",
+      "end": "13:40",
+      "title": "DuCUG Update",
+      "speakers": "Barry Schiffer",
+      "type": "org"
+    },
+    {
+      "start": "13:40",
+      "end": "14:25",
+      "title": "Next Level Workspace: Google Chrome Enterprise Premium",
+      "speakers": "Hubert Krautter",
+      "type": "talk"
+    },
+    {
+      "start": "14:30",
+      "end": "15:15",
+      "title": "EUC Performance Demystified: Must-Know Insights",
+      "speakers": "Kees Baggerman, Sven Huisman",
+      "type": "talk"
+    },
+    {
+      "start": "15:15",
+      "end": "15:45",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "15:45",
+      "end": "16:45",
+      "title": "Beyond ChatGPT: De AI-tools die je nog niet kent maar wel zou moeten",
+      "speakers": "Remko Weijnen",
+      "type": "talk"
+    },
+    {
+      "start": "16:45",
+      "end": "19:00",
+      "title": "Afsluiting & drinks",
+      "speakers": "Niek Boevink",
+      "type": "social"
+    }
+  ]
+}

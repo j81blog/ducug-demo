@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Migrating to Citrix Cloud made easy",
+      "speakers": "Shane O'Neill",
+      "type": "talk"
+    },
+    {
+      "title": "Base Image Script Framework (BIS-F) v6.1.0",
+      "speakers": "Matthias Schlimm",
+      "type": "talk"
+    },
+    {
+      "title": "Microsoft RDmi Preview (NDA-sessie)",
+      "speakers": "Bram Wolfs & Wilco van Bragt",
+      "type": "talk"
+    },
+    {
+      "title": "FSLogix Portfolio: Application Masking, Office365- en Profile Containers",
+      "speakers": "Jim Moyle",
+      "type": "talk"
+    },
+    {
+      "title": "Web App Performance in a virtual world",
+      "speakers": "Helge Klein",
+      "type": "talk"
+    },
+    {
+      "title": "Filters, the good, the bad and the ugly",
+      "speakers": "Jim Moyle",
+      "type": "talk"
+    },
+    {
+      "title": "Nutanix AHV hypervisor en Citrix integratie",
+      "speakers": "Matthijs v/d Berg",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix Workspace Hub in-depth: Screen Casting en Session Roaming",
+      "speakers": "Ingmar Verheij",
+      "type": "talk"
+    }
+  ]
+}

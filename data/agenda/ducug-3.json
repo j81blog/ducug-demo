@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Opening en sponsorerkenning",
+      "speakers": "Jon Jager",
+      "type": "org"
+    },
+    {
+      "title": "Citrix vision presentatie",
+      "speakers": "Guillaume Le Tyrant (Citrix)",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix NetScaler",
+      "speakers": "Simon Barnes",
+      "type": "talk"
+    },
+    {
+      "title": "XenApp applicatiecompatibiliteit",
+      "speakers": "Remko Weijnen",
+      "type": "talk"
+    },
+    {
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "title": "BYOS: Windows 2012 RDS Features",
+      "speakers": "Wilco van Bragt",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: AppDNA productoverzicht",
+      "speakers": "Niek Boevink, Michael Heurneman",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: Citrix VDI in a Box",
+      "speakers": "Louis Göhl",
+      "type": "talk"
+    },
+    {
+      "title": "Cloud Service Development bij Schuberg Philis",
+      "speakers": "Anton Opgenoort",
+      "type": "talk"
+    },
+    {
+      "title": "Geek Speak Live! panel",
+      "speakers": "Barry Schiffer (moderator)",
+      "type": "talk"
+    }
+  ]
+}

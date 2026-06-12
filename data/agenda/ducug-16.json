@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Panel: Podcasts in de EUC-community",
+      "speakers": "Eric van Klaveren, Sander Noordijk (Login Techcast), Kees Baggerman (Frontline Chatter), moderator: Barry Schiffer",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: Workplace Evolution & Content Platforms",
+      "speakers": "Ingmar Verheij",
+      "type": "talk"
+    },
+    {
+      "title": "Windows Virtual Desktop",
+      "speakers": "Christiaan Brinkhoff & Jim Moyle",
+      "type": "talk"
+    },
+    {
+      "title": "ControlUp sponsor-sessie",
+      "speakers": "Yevgeni Klushin",
+      "type": "sponsor"
+    },
+    {
+      "title": "Citrix Virtual Apps and Desktops op VMware on AWS",
+      "speakers": "Andrew Morgan",
+      "type": "talk"
+    },
+    {
+      "title": "BYOD: X-Config Tool",
+      "speakers": "Koen Warson & Frank Vandenbergh",
+      "type": "talk"
+    },
+    {
+      "title": "Data Privacy & Endpoint Management: WhatsApp, zakelijke contacten en Citrix",
+      "speakers": "Thorsten Rood",
+      "type": "talk"
+    },
+    {
+      "title": "BBQ en netwerken",
+      "type": "social"
+    }
+  ]
+}

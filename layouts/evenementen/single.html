@@ -33,13 +33,35 @@
   {{ end }}
 
   {{/* Structured programma (with live highlighting on the day itself) */}}
-  {{ if .Params.sessions }}
+  {{ if partial "event-sessions.html" . }}
   <section style="margin-bottom:3rem">
     <div class="dg-section-head">
       <h2>Programma</h2>
       <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
     </div>
     {{ partial "schedule.html" . }}
+  </section>
+  {{ end }}
+
+  {{/* Photo gallery — drop images in assets/img/events/ducug-NN/ and they appear here */}}
+  {{ $gallery := resources.Match (printf "img/events/ducug-%v/*" .Params.eventNumber) }}
+  {{ with $gallery }}
+  <section style="margin-bottom:3rem">
+    <div class="dg-section-head">
+      <h2>Foto's</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ len . }} FOTO'S</span>
+    </div>
+    <div class="dg-gallery">
+      {{ range . }}
+      {{ $thumb := .Fill "640x480 q75 CatmullRom" }}
+      {{ $full := .Resize "1600x q82" }}
+      <img src="{{ $thumb.RelPermalink }}"
+           data-zoom-src="{{ $full.RelPermalink }}"
+           alt="Foto van {{ $.Title }}"
+           width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+           loading="lazy">
+      {{ end }}
+    </div>
   </section>
   {{ end }}
 

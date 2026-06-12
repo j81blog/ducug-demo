@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Citrix Provisioning Survival Guide: PVS en MCS",
+      "speakers": "Martijn Bosschaart & Kees Baggerman",
+      "type": "talk"
+    },
+    {
+      "title": "XenApp Disaster Recovery met NetScaler GSLB & MS Azure Site Recovery",
+      "speakers": "Carsten Bruns",
+      "type": "talk"
+    },
+    {
+      "title": "Security voor Citrix-admins en consultants 2.1 (incl. GDPR/AVG)",
+      "speakers": "Geert Braakhekke & Remko Weijnen",
+      "type": "talk"
+    },
+    {
+      "title": "FSLogix Portfolio introductie",
+      "speakers": "Michel Roth",
+      "type": "talk"
+    },
+    {
+      "title": "Delivering XenApp en XenDesktop Essentials in Azure",
+      "speakers": "Christiaan Brinkhoff",
+      "type": "talk"
+    },
+    {
+      "title": "XenMobile, ShareFile & MS EMS integratie",
+      "speakers": "Rick Roetenberg",
+      "type": "talk"
+    },
+    {
+      "title": "Nutanix: platform simplificatie en Citrix Cloud-combinatie",
+      "speakers": "Matthijs v/d Berg",
+      "type": "talk"
+    },
+    {
+      "title": "Closing Keynote: AI, 3D-printing en robotica",
+      "speakers": "Douglas Brown",
+      "type": "talk",
+      "featured": true
+    }
+  ]
+}

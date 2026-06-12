@@ -1,0 +1,105 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:15",
+      "end": "09:25",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:30",
+      "end": "10:00",
+      "title": "Accelerate your Microsoft Teams experience in a virtual desktop",
+      "speakers": "Ryan Ververs-Bijkerk, Eltjo van Gulik",
+      "type": "talk"
+    },
+    {
+      "start": "10:05",
+      "end": "10:20",
+      "title": "eG Innovations sponsorsessie",
+      "speakers": "eG Innovations",
+      "type": "sponsor"
+    },
+    {
+      "start": "10:20",
+      "end": "10:50",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "10:50",
+      "end": "11:20",
+      "title": "De \"andere\" cloud: Server Based Computing op Google Cloud",
+      "speakers": "Michiel Brinkman",
+      "type": "talk"
+    },
+    {
+      "start": "11:25",
+      "end": "12:10",
+      "title": "How to be a better ally",
+      "speakers": "Gaby Grau",
+      "type": "talk"
+    },
+    {
+      "start": "12:10",
+      "end": "13:10",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "13:10",
+      "end": "13:25",
+      "title": "Liquidware sponsorsessie",
+      "speakers": "Liquidware",
+      "type": "sponsor"
+    },
+    {
+      "start": "13:30",
+      "end": "14:00",
+      "title": "GO-EUC: From zero to an automation hero by using Infrastructure as Code",
+      "speakers": "Patrick van den Born, Ryan Ververs-Bijkerk, Anton van Pelt",
+      "type": "talk"
+    },
+    {
+      "start": "14:05",
+      "end": "14:50",
+      "title": "Defending against the unknown: the \"reverse proxy myth\"",
+      "speakers": "Thorsten Rood",
+      "type": "talk"
+    },
+    {
+      "start": "14:50",
+      "end": "15:20",
+      "title": "Koffiepauze",
+      "type": "break"
+    },
+    {
+      "start": "15:20",
+      "end": "15:35",
+      "title": "ControlUp sponsorsessie",
+      "speakers": "ControlUp",
+      "type": "sponsor"
+    },
+    {
+      "start": "15:40",
+      "end": "16:25",
+      "title": "The Future of EUC, CVAD and the Digital Workspace",
+      "speakers": "Bernhard Tritsch",
+      "type": "talk"
+    },
+    {
+      "start": "16:25",
+      "end": "16:40",
+      "title": "Afsluiting",
+      "type": "org"
+    },
+    {
+      "start": "16:40",
+      "end": "21:00",
+      "title": "Receptie, diner & F1-simulatoren",
+      "type": "social"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Opening",
+      "speakers": "Jon Jager (DuCUG voorzitter)",
+      "type": "org"
+    },
+    {
+      "title": "Reverse Seamless functionaliteit in XenDesktop en XenApp",
+      "speakers": "Andrew Morgan (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "PVS infrastructuurontwerp",
+      "speakers": "Ingmar Verheij & Wilco van Bragt (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "XenDesktop 7 installatie en beheer",
+      "speakers": "Stephane Thirion (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "title": "BYOS: Citrix StoreFront 2.0",
+      "speakers": "Esther Barthel",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: XenDesktop 7 automatisering en monitoring",
+      "speakers": "Roland van der Kruk",
+      "type": "talk"
+    },
+    {
+      "title": "BYOS: Advanced Image Management Toolkit",
+      "speakers": "Barry Schiffer",
+      "type": "talk"
+    },
+    {
+      "title": "GPU-oplossingen met NICE product demo",
+      "speakers": "Thomas Poppelgaard",
+      "type": "talk"
+    },
+    {
+      "title": "GeekSpeak Live!",
+      "speakers": "Barry Schiffer & Kees Baggerman",
+      "type": "talk"
+    }
+  ]
+}

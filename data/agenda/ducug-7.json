@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Setting up a shared service center (klantcase)",
+      "speakers": "Jits Langendijk",
+      "type": "talk"
+    },
+    {
+      "title": "Citrix Summit aankondigingen (Octoblu, Receiver X1, XenApp/XenDesktop)",
+      "speakers": "Ingmar Verheij",
+      "type": "talk"
+    },
+    {
+      "title": "Why we don't need Citrix support (at all times)",
+      "speakers": "Bas van Kaam",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: XenMobile 10: wat is nieuw en hoe stel je het in",
+      "speakers": "Robin Hobo",
+      "type": "talk"
+    },
+    {
+      "title": "PVS Cache to RAM with overflow to disk",
+      "speakers": "Jim Moyle (Citrix CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: PVS made simple",
+      "speakers": "Bader el Khalifi",
+      "type": "talk"
+    },
+    {
+      "title": "How folder redirection impacts user experience and breaks applications",
+      "speakers": "Helge Klein (Citrix CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "Geek Speak Live: biedt de Citrix productstack alles wat je nodig hebt?",
+      "speakers": "Barry Schiffer & Kees Baggerman",
+      "type": "talk"
+    }
+  ]
+}

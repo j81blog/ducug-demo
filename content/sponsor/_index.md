@@ -4,11 +4,11 @@ description: "Steun de Nederlandse Citrix- en EUC-community als sponsor van de D
 kicker: "Steun de community"
 ---
 
-De DuCUG is een onafhankelijke stichting zonder financiële steun van Citrix of andere grote organisaties. Onze evenementen zijn gratis voor deelnemers — dat kunnen we alleen dankzij onze sponsors.
+De DuCUG is een onafhankelijke stichting zonder financiële steun van Citrix of andere grote organisaties. Onze evenementen zijn gratis voor deelnemers. Dat kunnen we alleen dankzij onze sponsors.
 
 {{< sponsorwall >}}
 
-Wij organiseren twee evenementen per jaar, elk met een specifiek technisch thema. **Sponsorende organisaties krijgen geen presentatieslot** — wij hanteren een strikt technisch programma om commerciële sessies te voorkomen.
+Wij organiseren twee evenementen per jaar, elk met een specifiek technisch thema. **Sponsorende organisaties krijgen geen presentatieslot**. Wij hanteren een strikt technisch programma om commerciële sessies te voorkomen.
 
 ## Sponsorpakketten
 

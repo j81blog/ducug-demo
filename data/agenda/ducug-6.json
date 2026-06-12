@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "HDX 3D Graphics en GPU-acceleratie",
+      "speakers": "Rachel Berry (Citrix)",
+      "type": "talk"
+    },
+    {
+      "title": "ShareFile in het onderwijs",
+      "speakers": "Martijn Hulsman, Rink Spies",
+      "type": "talk"
+    },
+    {
+      "title": "XenMobile App Edition: ervaringen uit de praktijk",
+      "speakers": "Daniel Wedel (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: 1000-seats VDI-in-a-box implementatie",
+      "speakers": "Gerjon Kunst",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: SMB versus Enterprise klantenverschillen",
+      "speakers": "Ruben Giaccotto",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: PVS infrastructuur resourcegebruik",
+      "speakers": "Wilco van Bragt (CTP)",
+      "type": "talk"
+    },
+    {
+      "title": "CYOS: XenServer features en strategie",
+      "speakers": "David Cottingham",
+      "type": "talk"
+    },
+    {
+      "title": "Geek Speak Live",
+      "type": "talk"
+    }
+  ]
+}

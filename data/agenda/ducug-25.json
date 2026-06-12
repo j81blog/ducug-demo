@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "start": "09:00",
+      "end": "09:20",
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "09:25",
+      "end": "10:10",
+      "title": "Unraveling the User Experience Puzzle",
+      "speakers": "Ryan Ververs-Bijkerk, Eltjo van Gulik",
+      "type": "talk"
+    },
+    {
+      "start": "10:15",
+      "end": "10:30",
+      "title": "Unicon sponsorsessie",
+      "speakers": "Alec (Unicon)",
+      "type": "sponsor"
+    },
+    {
+      "start": "10:30",
+      "end": "11:00",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "11:00",
+      "end": "11:45",
+      "title": "Let's blame the VDI",
+      "speakers": "Mark Calderhead",
+      "type": "talk"
+    },
+    {
+      "start": "11:50",
+      "end": "12:30",
+      "title": "Citrix Secure Private Access",
+      "speakers": "Marcel Zunnebeld",
+      "type": "talk"
+    },
+    {
+      "start": "12:35",
+      "end": "12:50",
+      "title": "ThinScale sponsorsessie (quiz met Kees & Remko)",
+      "speakers": "ThinScale",
+      "type": "sponsor"
+    },
+    {
+      "start": "12:50",
+      "end": "14:00",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "14:00",
+      "end": "14:45",
+      "title": "Modern Auth in HMC",
+      "speakers": "Thorsten Rood",
+      "type": "talk"
+    },
+    {
+      "start": "14:50",
+      "end": "15:20",
+      "title": "Citrix beheer met Ansible",
+      "speakers": "Jeroen Meppelink",
+      "type": "talk"
+    },
+    {
+      "start": "15:20",
+      "end": "15:50",
+      "title": "Pauze",
+      "type": "break"
+    },
+    {
+      "start": "15:50",
+      "end": "16:05",
+      "title": "eG Innovations sponsorsessie",
+      "speakers": "Erik van Veenendaal",
+      "type": "sponsor"
+    },
+    {
+      "start": "16:10",
+      "end": "16:55",
+      "title": "Profile Manager vs FSLogix",
+      "speakers": "Markus Zehnle",
+      "type": "talk"
+    },
+    {
+      "start": "16:55",
+      "end": "17:00",
+      "title": "Afsluiting",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "start": "17:00",
+      "end": "20:00",
+      "title": "Drinks & diner",
+      "type": "social"
+    }
+  ]
+}

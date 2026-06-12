@@ -57,7 +57,7 @@
 
   {{/* ===================== Event-day agenda takeover ===================== */}}
   {{ with $next }}
-  {{ if .Params.sessions }}
+  {{ if partial "event-sessions.html" . }}
   <section class="dg-takeover" data-live-only hidden style="margin-bottom:clamp(3.5rem,7vw,5.5rem)">
     <div class="dg-section-head">
       <h2>Programma van vandaag <span class="dg-grad-text">· {{ .Title }}</span></h2>
@@ -85,7 +85,7 @@
         <p class="dg-kicker" style="color:var(--dg-green)">Kennis op eigen niveau</p>
         <h2>Geen marketing.<br>Wél de inhoud.</h2>
         <p>De DuCUG werd in 2011 opgericht door zes Citrix-professionals die een plek misten waar techniek écht centraal staat. Vandaag is het dé vaste ontmoetingsplaats voor consultants en engineers die werken aan de moderne digitale werkplek.</p>
-        <p>Sessies worden gegeven door de community zelf — via ons Bring Your Own Session-format bepaal jij mee wat er op het programma staat.</p>
+        <p>Sessies worden gegeven door de community zelf. Via ons Bring Your Own Session-format bepaal jij mee wat er op het programma staat.</p>
         <div class="dg-hero__actions" style="margin-top:1.8rem">
           <a class="dg-btn dg-btn--ghost" href="{{ "over/" | relLangURL }}">Over de DuCUG</a>
           <a class="dg-btn dg-btn--ghost" href="{{ "cfp/" | relLangURL }}">Dien een sessie in</a>
@@ -106,6 +106,9 @@
     </div>
     {{ partial "sponsor-wall.html" . }}
   </section>
+
+  {{/* ============================ BYOS band ============================ */}}
+  {{ partial "byos-banner.html" . }}
 
   {{/* ========================== Recent events ========================== */}}
   {{ with $past | first 3 }}

@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/agenda.schema.json",
+  "sessions": [
+    {
+      "title": "Opening",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    },
+    {
+      "title": "Delivering a great user experience in a hybrid cloud scenario using Citrix Virtual Apps and Desktops",
+      "speakers": "Niek Boevink, Ryan Ververs-Bijkerk, Eltjo van Gulik",
+      "type": "talk"
+    },
+    {
+      "title": "Tips from the field: how to easily troubleshoot and optimize a modern Citrix environment",
+      "speakers": "Daniel Wedel",
+      "type": "talk"
+    },
+    {
+      "title": "Our changing relationship with the computer",
+      "speakers": "James Bulpin",
+      "type": "talk"
+    },
+    {
+      "title": "NITRO FTW!!!",
+      "speakers": "Esther Barthel",
+      "type": "talk"
+    },
+    {
+      "title": "BYOD: Micro Apps bouwen in Citrix Workspace",
+      "speakers": "Chris Twiest & Gerjon Kunst",
+      "type": "talk"
+    },
+    {
+      "title": "The Protocol Wars: welke kant kies jij?",
+      "speakers": "Rody Kossen",
+      "type": "talk"
+    },
+    {
+      "title": "Klantcasus: Citrix & NVIDIA in de praktijk",
+      "speakers": "Krishan Khoesial",
+      "type": "talk"
+    },
+    {
+      "title": "Afsluiting",
+      "speakers": "Niek Boevink",
+      "type": "org"
+    }
+  ]
+}

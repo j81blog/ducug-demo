@@ -13,12 +13,3 @@ aliases        = ["/evenementen/citrix-user-group-conferentie-11/"]
 
 Een bijzonder formaat: het elfde DuCUG evenement werd op twee avonden georganiseerd (1 en 2 februari 2017) met identieke inhoud, zodat deelnemers de datum konden kiezen die hen het best uitkwam. Citrix CTO Christian Reilly presenteerde de aankondigingen van de Citrix Summit 2017 in Anaheim, inclusief de UniDesk-overname en de Microsoft-samenwerking.
 
----
-
-## Programma
-
-| Sessie | Spreker(s) |
-|--------|------------|
-| Citrix Summit 2017 aankondigingen: UniDesk-overname en Microsoft-samenwerking | Christian Reilly (Citrix CTO) |
-
-*Beide sessies (1 en 2 februari) hadden identieke inhoud.*

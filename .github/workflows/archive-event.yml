@@ -51,6 +51,7 @@ jobs:
               EventDate            = "${{ github.event.inputs.event_date }}"
               EventLocation        = "${{ github.event.inputs.event_location }}"
               OutputPath           = "${{ github.workspace }}\content\evenementen"
+              AgendaOutputPath     = "${{ github.workspace }}\data\agenda"
               Force                = $true
               GitHubActionsOutput  = $true
               Verbose              = $true
@@ -66,14 +67,15 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          $FilePath = "content/evenementen/ducug-${{ github.event.inputs.event_number }}.md"
-          git add $FilePath
+          $FilePath   = "content/evenementen/ducug-${{ github.event.inputs.event_number }}.md"
+          $AgendaPath = "data/agenda/ducug-${{ github.event.inputs.event_number }}.json"
+          git add $FilePath $AgendaPath
 
           $Status = git status --porcelain
           if ($Status) {
               git commit -m "archive: DuCUG #${{ github.event.inputs.event_number }} — generated from Sessionize"
               git push origin main
-              Write-Output "Committed and pushed: $($FilePath)"
+              Write-Output "Committed and pushed: $($FilePath) + $($AgendaPath)"
           }
           else {
               Write-Output "No changes to commit — file was already up to date."
