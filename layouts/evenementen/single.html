@@ -7,11 +7,11 @@
     <div class="dg-wrap dg-event-hero__in">
       <span class="dg-event-hero__ghost" aria-hidden="true">#{{ .Params.eventNumber }}</span>
       {{ if .Params.archived }}
-      <p class="dg-kicker" style="color:var(--dg-ink-muted)">Gearchiveerd evenement</p>
+      <p class="dg-kicker dg-kicker--muted">Gearchiveerd evenement</p>
       {{ else if lt now.Unix .Date.Unix }}
-      <p class="dg-kicker" style="color:var(--dg-green)">Volgend evenement</p>
+      <p class="dg-kicker">Volgend evenement</p>
       {{ else }}
-      <p class="dg-kicker" style="color:var(--dg-green)">Meest recente editie</p>
+      <p class="dg-kicker">Meest recente editie</p>
       {{ end }}
       <h1>{{ .Title }}</h1>
       <div class="dg-event-hero__chips">
